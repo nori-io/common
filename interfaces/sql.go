@@ -22,7 +22,7 @@ import (
 
 type SQL interface {
 	GetDB() *sql.DB
-	GetDBName() RDBMSInfo
+	GetRDBMSInfo() RDBMSInfo
 }
 
 type RDBMSInfo struct {
