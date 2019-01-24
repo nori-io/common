@@ -21,7 +21,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/secure2work/nori/core/endpoint"
+	"github.com/secure2work/nori-common/endpoint"
 )
 
 type Server struct {

@@ -20,7 +20,7 @@ import (
 	"context"
 	"errors"
 
-	"github.com/secure2work/nori/core/endpoint"
+	"github.com/secure2work/nori-common/endpoint"
 )
 
 const (
