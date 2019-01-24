@@ -20,7 +20,7 @@ import (
 	"context"
 	nethttp "net/http"
 
-	"github.com/secure2work/nori/core/transport/http"
+	"github.com/secure2work/nori-common/transport/http"
 )
 
 type AccessTokener interface {
