@@ -24,11 +24,11 @@ func TestInterface_Dependency(t *testing.T) {
 	a := assert.New(t)
 
 	i := meta.Auth
-	dep := i.Dependency("1.0")
+	dep := i.Dependency("1.0.0")
 
 	a.Equal(meta.Dependency{
 		ID:         "",
-		Constraint: "~1.0",
+		Constraint: "~1.0.0",
 		Interface:  meta.Auth,
 	}, dep)
 }
