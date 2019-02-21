@@ -24,7 +24,7 @@ func TestData_MetaInterface(t *testing.T) {
 
 	id := meta.ID{
 		ID:      meta.PluginID("nori/common"),
-		Version: "1.0",
+		Version: "1.0.0",
 	}
 
 	author := meta.Author{
@@ -35,7 +35,7 @@ func TestData_MetaInterface(t *testing.T) {
 	dependencies := []meta.Dependency{
 		meta.Dependency{
 			ID:         meta.PluginID("nori/a"),
-			Constraint: ">=1.0",
+			Constraint: ">=1.0.0",
 		},
 		meta.Dependency{
 			Interface: meta.Auth,
@@ -48,7 +48,7 @@ func TestData_MetaInterface(t *testing.T) {
 	}
 
 	core := meta.Core{
-		VersionConstraint: "1.0",
+		VersionConstraint: "1.0.0",
 	}
 
 	Interface := meta.Custom
