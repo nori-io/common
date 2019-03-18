@@ -26,6 +26,6 @@ limitations under the License.
 */
 '
 
-mockery -name=Registry -dir ../plugin -output . -note "${NOTE}"
+mockery -all -dir ../plugin -output . -note "${NOTE}"
 mockery -all -dir ../config -output . -note "${NOTE}"
 mockery -all -dir ../interfaces -output . -note "${NOTE}"
