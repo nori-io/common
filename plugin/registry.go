@@ -17,7 +17,6 @@ import (
 	"github.com/nori-io/nori-common/config"
 	"github.com/nori-io/nori-common/interfaces"
 	"github.com/nori-io/nori-common/meta"
-	"github.com/sirupsen/logrus"
 )
 
 type Registry interface {
@@ -29,7 +28,7 @@ type Registry interface {
 	Config() config.Manager
 	Http() (interfaces.Http, error)
 	HTTPTransport() (interfaces.HTTPTransport, error)
-	Logger(meta meta.Meta) *logrus.Logger
+	Logger(meta meta.Meta) interfaces.Logger
 	Mail() (interfaces.Mail, error)
 	PubSub() (interfaces.PubSub, error)
 	Session() (interfaces.Session, error)
