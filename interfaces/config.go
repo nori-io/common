@@ -19,11 +19,10 @@ type Config interface {
 	Float(key string) float64
 	Int(key string) int
 	IsSet(key string) bool
-	UInt(key string) uint
-	Unmarshal(v interface{}, prefix string) error
 	SetDefault(key string, val interface{})
 	Slice(key, delimiter string) []interface{}
 	String(key string) string
 	StringMap(key string) map[string]interface{}
-	Sub(key string) Config
+	UInt(key string) uint
+	Unmarshal(v interface{}, prefix string) error
 }
