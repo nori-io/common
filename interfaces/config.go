@@ -25,4 +25,5 @@ type Config interface {
 	Slice(key, delimiter string) []interface{}
 	String(key string) string
 	StringMap(key string) map[string]interface{}
+	Sub(key string) Config
 }
