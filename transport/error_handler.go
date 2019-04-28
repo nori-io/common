@@ -11,10 +11,10 @@ type ErrorHandler interface {
 }
 
 type LogErrorHandler struct {
-	logger logger.Logger
+	logger logger.Writer
 }
 
-func NewLogErrorHandler(logger logger.Logger) *LogErrorHandler {
+func NewLogErrorHandler(logger logger.Writer) *LogErrorHandler {
 	return &LogErrorHandler{
 		logger: logger,
 	}

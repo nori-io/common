@@ -33,7 +33,7 @@ type Server struct {
 
 type ServerOption func(*Server)
 
-func ServerErrorLogger(logger logger.Logger) ServerOption {
+func ServerErrorLogger(logger logger.Writer) ServerOption {
 	return func(s *Server) { s.errorHandler = transport.NewLogErrorHandler(logger) }
 }
 

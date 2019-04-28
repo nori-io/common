@@ -3,6 +3,13 @@ package logger
 type Fields map[string]interface{}
 
 type Logger interface {
+	Writer
+
+	WithField(key string, value interface{}) Logger
+	WithFields(fields Fields) Logger
+}
+
+type Writer interface {
 	Debug(args ...interface{})
 	Info(args ...interface{})
 	Print(args ...interface{})
@@ -23,7 +30,4 @@ type Logger interface {
 	Warnln(args ...interface{})
 	Warningln(args ...interface{})
 	Errorln(args ...interface{})
-
-	WithField(key string, value interface{}) Logger
-	WithFields(fields Fields) Logger
 }
