@@ -34,7 +34,7 @@ const (
 func (i Interface) Dependency(ver string) Dependency {
 	return Dependency{
 		ID:         "",
-		Constraint: "~>" + ver,
+		Constraint: ver,
 		Interface:  i,
 	}
 }

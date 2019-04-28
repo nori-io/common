@@ -21,6 +21,10 @@ import (
 
 type DecodeRequest func(context.Context, *http.Request) (request interface{}, err error)
 
+type EncodeRequest func(context.Context, *http.Request, interface{}) error
+
+type DecodeResponse func(context.Context, *http.Response) (response interface{}, err error)
+
 type EncodeResponse func(context.Context, http.ResponseWriter, interface{}) error
 
 type StatusCoder interface {

@@ -16,9 +16,9 @@ package http
 import (
 	"net/http"
 
-	"github.com/sirupsen/logrus"
-
 	"github.com/nori-io/nori-common/endpoint"
+	"github.com/nori-io/nori-common/logger"
+	"github.com/nori-io/nori-common/transport"
 )
 
 type Server struct {
@@ -28,16 +28,23 @@ type Server struct {
 	before       []ServerBeforeFunc
 	after        []ServerAfterFunc
 	errorEncoder ErrorEncoder
-	logger       *logrus.Logger
+	errorHandler transport.ErrorHandler
 }
 
 type ServerOption func(*Server)
+
+func ServerErrorLogger(logger logger.Logger) ServerOption {
+	return func(s *Server) { s.errorHandler = transport.NewLogErrorHandler(logger) }
+}
+
+func ServerErrorHandler(errorHandler transport.ErrorHandler) ServerOption {
+	return func(s *Server) { s.errorHandler = errorHandler }
+}
 
 func NewServer(
 	e endpoint.Endpoint,
 	decode DecodeRequest,
 	encode EncodeResponse,
-	logger *logrus.Logger,
 	options ...ServerOption,
 ) *Server {
 	s := &Server{
@@ -45,7 +52,7 @@ func NewServer(
 		decode:       decode,
 		encode:       encode,
 		errorEncoder: DefaultErrorEncoder,
-		logger:       logger,
+		//errorHandler: , // add nop error handler
 	}
 	for _, option := range options {
 		option(s)
@@ -62,7 +69,9 @@ func (s Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 	request, err := s.decode(ctx, r)
 	if err != nil {
-		s.logger.Error(err)
+		if s.errorHandler != nil {
+			s.errorHandler.Handle(ctx, err)
+		}
 		s.errorEncoder(ctx, err, w)
 		return
 	}
@@ -70,7 +79,9 @@ func (s Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	response, err := s.e(ctx, request)
 
 	if err != nil {
-		s.logger.Error(err)
+		if s.errorHandler != nil {
+			s.errorHandler.Handle(ctx, err)
+		}
 		s.errorEncoder(ctx, err, w)
 		return
 	}
@@ -80,7 +91,9 @@ func (s Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if err := s.encode(ctx, w, response); err != nil {
-		s.logger.Error(err)
+		if s.errorHandler != nil {
+			s.errorHandler.Handle(ctx, err)
+		}
 		s.errorEncoder(ctx, err, w)
 		return
 	}
