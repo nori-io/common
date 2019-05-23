@@ -25,6 +25,6 @@ type AccessTokener interface {
 }
 
 type HTTPTransport interface {
-	ToContext() http.ServerBeforeFunc
+	ToContext() http.BeforeFunc
 	ToTransport(ctx context.Context, w nethttp.ResponseWriter, at AccessTokener) http.ServerAfterFunc
 }

@@ -89,6 +89,11 @@ type Link struct {
 	URL   string
 }
 
+type Repository struct {
+	Type string
+	URI  string
+}
+
 type Meta interface {
 	Id() ID
 	GetAuthor() Author
@@ -98,6 +103,7 @@ type Meta interface {
 	GetInterface() Interface
 	GetLicense() License
 	GetLinks() []Link
+	GetRepository() Repository
 	GetTags() []string
 }
 
@@ -110,6 +116,7 @@ type Data struct {
 	Interface    Interface
 	License      License
 	Links        []Link
+	Repository   Repository
 	Tags         []string
 }
 
@@ -143,6 +150,10 @@ func (m Data) GetLicense() License {
 
 func (m Data) GetLinks() []Link {
 	return m.Links
+}
+
+func (m Data) GetRepository() Repository {
+	return m.Repository
 }
 
 func (m Data) GetTags() []string {

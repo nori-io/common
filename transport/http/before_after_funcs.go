@@ -18,14 +18,27 @@ import (
 	"net/http"
 )
 
-type ServerBeforeFunc func(context.Context, *http.Request) context.Context
+// Server executes BeforeFuncs prior to invoking the endpoint.
+// Client executes BeforeFuncs after creating the request
+// but prior to invoking the HTTP client.
+type BeforeFunc func(context.Context, *http.Request) context.Context
 
 type ServerAfterFunc func(context.Context, http.ResponseWriter) context.Context
 
-func ServerBefore(before ...ServerBeforeFunc) ServerOption {
+type ClientAfterFunc func(context.Context, *http.Response) context.Context
+
+func ServerBefore(before ...BeforeFunc) ServerOption {
 	return func(s *Server) { s.before = append(s.before, before...) }
 }
 
 func ServerAfter(after ...ServerAfterFunc) ServerOption {
 	return func(s *Server) { s.after = append(s.after, after...) }
+}
+
+func ClientBefore(before ...BeforeFunc) ClientOption {
+	return func(c *Client) { c.before = append(c.before, before...) }
+}
+
+func ClientAfter(after ...ClientAfterFunc) ClientOption {
+	return func(c *Client) { c.after = append(c.after, after...) }
 }

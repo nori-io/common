@@ -25,7 +25,7 @@ type Server struct {
 	e            endpoint.Endpoint
 	decode       DecodeRequest
 	encode       EncodeResponse
-	before       []ServerBeforeFunc
+	before       []BeforeFunc
 	after        []ServerAfterFunc
 	errorEncoder ErrorEncoder
 	errorHandler transport.ErrorHandler
