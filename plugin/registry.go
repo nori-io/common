@@ -15,23 +15,13 @@ package plugin
 
 import (
 	"github.com/nori-io/nori-common/config"
-	"github.com/nori-io/nori-common/interfaces"
+	"github.com/nori-io/nori-common/logger"
 	"github.com/nori-io/nori-common/meta"
 )
 
 type Registry interface {
-	Resolve(dep meta.Dependency) (interface{}, error)
-
-	Auth() (interfaces.Auth, error)
-	Authorize() (interfaces.Authorize, error)
-	Cache() (interfaces.Cache, error)
 	Config() config.Manager
-	Http() (interfaces.Http, error)
-	HTTPTransport() (interfaces.HTTPTransport, error)
-	Logger(meta meta.Meta) interfaces.Logger
-	Mail() (interfaces.Mail, error)
-	PubSub() (interfaces.PubSub, error)
-	Session() (interfaces.Session, error)
-	Sql() (interfaces.SQL, error)
-	Templates() (interfaces.Templates, error)
+	Interface(i meta.Interface) (interface{}, error)
+	Logger(meta meta.Meta) logger.Writer
+	Resolve(dep meta.Dependency) (interface{}, error)
 }

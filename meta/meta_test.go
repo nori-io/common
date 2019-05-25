@@ -38,7 +38,7 @@ func TestData_MetaInterface(t *testing.T) {
 			Constraint: ">=1.0.0",
 		},
 		meta.Dependency{
-			Interface: meta.Auth,
+			Interface: "Auth",
 		},
 	}
 
@@ -51,7 +51,7 @@ func TestData_MetaInterface(t *testing.T) {
 		VersionConstraint: "1.0.0",
 	}
 
-	Interface := meta.Custom
+	Interface := meta.Interface("Custom")
 
 	license := meta.License{
 		Title: "Apache 2.0 License",
@@ -74,7 +74,7 @@ func TestData_MetaInterface(t *testing.T) {
 		Dependencies: dependencies,
 		Description:  description,
 		Core:         core,
-		Interface:    Interface,
+		Interface:    meta.Interface(Interface),
 		License:      license,
 		Links:        links,
 		Tags:         tags,

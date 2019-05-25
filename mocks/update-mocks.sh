@@ -28,4 +28,3 @@ limitations under the License.
 
 mockery -all -dir ../plugin -output . -note "${NOTE}"
 mockery -all -dir ../config -output . -note "${NOTE}"
-mockery -all -dir ../interfaces -output . -note "${NOTE}"

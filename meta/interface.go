@@ -15,22 +15,6 @@ package meta
 
 type Interface string
 
-const (
-	Custom        Interface = "Custom"
-	Auth          Interface = "Auth"
-	Authorize     Interface = "Authorize"
-	Cache         Interface = "Cache"
-	Config        Interface = "Config"
-	HTTP          Interface = "HTTP"
-	HTTPTransport Interface = "HTTPTransport"
-	Mail          Interface = "Mail"
-	PubSub        Interface = "PubSub"
-	Session       Interface = "Session"
-	SQL           Interface = "SQL"
-	Templates     Interface = "Templates"
-	Transport     Interface = "Transport"
-)
-
 func (i Interface) Dependency(ver string) Dependency {
 	return Dependency{
 		ID:         "",
