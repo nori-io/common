@@ -24,5 +24,5 @@ func (i Interface) Dependency(ver string) Dependency {
 }
 
 func (i Interface) IsEmpty() bool {
-	return len(i) > 0
+	return len(i) == 0
 }
