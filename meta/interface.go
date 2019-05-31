@@ -22,3 +22,7 @@ func (i Interface) Dependency(ver string) Dependency {
 		Interface:  i,
 	}
 }
+
+func (i Interface) IsEmpty() bool {
+	return len(i) > 0
+}
