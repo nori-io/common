@@ -23,6 +23,6 @@ func (i Interface) Dependency(ver string) Dependency {
 	}
 }
 
-func (i Interface) IsEmpty() bool {
+func (i Interface) IsUndefined() bool {
 	return len(i) == 0
 }
