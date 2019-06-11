@@ -13,16 +13,52 @@ limitations under the License.
 
 package meta
 
+import (
+	"fmt"
+	"strings"
+)
+
 type Interface string
 
-func (i Interface) Dependency(ver string) Dependency {
+func NewInterface(name, version string) Interface {
+	if len(version) == 0 {
+		version = "0.0.0"
+	}
+	return Interface(fmt.Sprintf("%s@%s", name, version))
+}
+
+func (i Interface) Dependency() Dependency {
 	return Dependency{
 		ID:         "",
-		Constraint: ver,
+		Constraint: "",
 		Interface:  i,
 	}
 }
 
+func (i Interface) Equal(other Interface) bool {
+	return i == other
+}
+
 func (i Interface) IsUndefined() bool {
 	return len(i) == 0
+}
+
+func (i Interface) Name() string {
+	parts := strings.Split(string(i), "@")
+	if len(parts) != 2 {
+		return string(i)
+	}
+	return parts[0]
+}
+
+func (i Interface) String() string {
+	return string(i)
+}
+
+func (i Interface) Version() string {
+	parts := strings.Split(string(i), "@")
+	if len(parts) != 2 {
+		return "0.0.0"
+	}
+	return parts[1]
 }
