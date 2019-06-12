@@ -26,6 +26,7 @@ limitations under the License.
 */
 '
 
+mockery -all -dir ../logger -output . -note "${NOTE}"
 mockery -all -dir ../plugin -output . -note "${NOTE}"
 mockery -all -dir ../config -output . -note "${NOTE}"
 mockery -all -dir ../meta -output . -note "${NOTE}"
