@@ -23,7 +23,7 @@ import (
 func TestInterface_Dependency(t *testing.T) {
 	a := assert.New(t)
 
-	var i = meta.Interface("Auth@1.0.0")
+	var i = meta.Interface("nori/Auth@1.0.0")
 	dep := i.Dependency()
 
 	a.Equal(meta.Dependency{
@@ -36,11 +36,11 @@ func TestInterface_Dependency(t *testing.T) {
 func TestInterface_Equal(t *testing.T) {
 	a := assert.New(t)
 
-	i := meta.Interface("Any@1.0.0")
-	same := meta.Interface("Any@1.0.0")
-	sameV2 := meta.Interface("Any@2.0.0")
-	other := meta.Interface("Other@1.0.0")
-	noVersion := meta.Interface("Any")
+	i := meta.Interface("nori/Any@1.0.0")
+	same := meta.Interface("nori/Any@1.0.0")
+	sameV2 := meta.Interface("nori/Any@2.0.0")
+	other := meta.Interface("nori/Other@1.0.0")
+	noVersion := meta.Interface("nori/Any")
 
 	a.True(i.Equal(same))
 	a.False(i.Equal(sameV2))
@@ -52,7 +52,7 @@ func TestInterface_IsUndefined(t *testing.T) {
 	a := assert.New(t)
 
 	empty := meta.Interface("")
-	auth := meta.Interface("auth@1.0.0")
+	auth := meta.Interface("nori/auth@1.0.0")
 
 	a.True(empty.IsUndefined())
 	a.False(auth.IsUndefined())
@@ -62,7 +62,7 @@ func TestInterface_NameAndVersion(t *testing.T) {
 	a := assert.New(t)
 
 	noVersion := "0.0.0"
-	name := "Auth"
+	name := "nori/Auth"
 	ver := "1.2.3"
 
 	empty := meta.Interface("")

@@ -16,7 +16,7 @@ package meta
 import (
 	"fmt"
 
-	"github.com/hashicorp/go-version"
+	"github.com/nori-io/nori-common/version"
 )
 
 type PluginID string
@@ -26,7 +26,7 @@ type ID struct {
 	Version string
 }
 
-func (id ID) GetVersion() (*version.Version, error) {
+func (id ID) GetVersion() (version.Version, error) {
 	v, err := version.NewVersion(id.Version)
 	if err != nil {
 		return nil, err
@@ -101,7 +101,7 @@ type Meta interface {
 	GetDescription() Description
 	GetCore() Core
 	GetInterface() Interface
-	GetLicense() License
+	GetLicense() []License
 	GetLinks() []Link
 	GetRepository() Repository
 	GetTags() []string
@@ -114,7 +114,7 @@ type Data struct {
 	Description  Description
 	Core         Core
 	Interface    Interface
-	License      License
+	License      []License
 	Links        []Link
 	Repository   Repository
 	Tags         []string
@@ -144,7 +144,7 @@ func (m Data) GetInterface() Interface {
 	return m.Interface
 }
 
-func (m Data) GetLicense() License {
+func (m Data) GetLicense() []License {
 	return m.License
 }
 

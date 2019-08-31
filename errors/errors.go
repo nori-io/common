@@ -11,5 +11,5 @@ type InterfaceAssertError struct {
 }
 
 func (e InterfaceAssertError) Error() string {
-	return fmt.Sprintf("can's assert interface to %s", e.Interface)
+	return fmt.Sprintf("can't assert interface to %s", e.Interface)
 }

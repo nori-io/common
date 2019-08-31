@@ -34,7 +34,9 @@ type (
 	Bool      func() bool
 	Float     func() float64
 	Int       func() int
+	Int64     func() int64
 	UInt      func() uint
+	UInt64    func() uint64
 	Slice     func() []interface{}
 	String    func() string
 	StringMap func() map[string]interface{}

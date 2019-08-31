@@ -21,6 +21,7 @@ import (
 
 type Registry interface {
 	Config() config.Manager
+	ID(i meta.ID) (interface{}, error)
 	Interface(i meta.Interface) (interface{}, error)
 	Logger(meta meta.Meta) logger.Writer
 	Resolve(dep meta.Dependency) (interface{}, error)
