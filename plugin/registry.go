@@ -14,15 +14,11 @@ limitations under the License.
 package plugin
 
 import (
-	"github.com/nori-io/nori-common/config"
-	"github.com/nori-io/nori-common/logger"
 	"github.com/nori-io/nori-common/meta"
 )
 
 type Registry interface {
-	Config() config.Manager
-	ID(i meta.ID) (interface{}, error)
+	ID(id meta.ID) (interface{}, error)
 	Interface(i meta.Interface) (interface{}, error)
-	Logger(meta meta.Meta) logger.Writer
 	Resolve(dep meta.Dependency) (interface{}, error)
 }
