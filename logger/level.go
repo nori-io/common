@@ -33,7 +33,7 @@ const (
 	// Critical: critical conditions
 	LevelCriticalStr = "critical"
 	// Alert: action must be taken immediately
-	LevelAlertStr = "alert"
+	LevelNoticeStr = "notice"
 	// Panic: logger calls panic with passed message
 	LevelPanicStr = "panic"
 	// Fatal: system is unusable
@@ -51,11 +51,11 @@ func (l Level) String() string {
 	case LevelError:
 		return LevelErrorStr
 	case LevelNotice:
-		return LevelAlertStr
+		return LevelNoticeStr
 	case LevelCritical:
 		return LevelCriticalStr
 	case LevelFatal:
-		return LevelAlertStr
+		return LevelNoticeStr
 	case LevelPanic:
 		return LevelPanicStr
 	}
@@ -74,7 +74,7 @@ func (l *Level) FromString(level string) Level {
 		*l = LevelWarning
 	case LevelErrorStr:
 		*l = LevelError
-	case LevelAlertStr:
+	case LevelNoticeStr:
 		*l = LevelNotice
 	case LevelCriticalStr:
 		*l = LevelCritical
