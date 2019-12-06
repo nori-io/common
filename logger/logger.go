@@ -1,11 +1,13 @@
 package logger
 
-type Fields map[string]interface{}
+type Field struct {
+	Key   string
+	Value string
+}
 
 type Logger interface {
 	FieldLogger
-	With(fields Fields)
-
+	With(fields ...Field)
 }
 
 type FieldLogger interface {
