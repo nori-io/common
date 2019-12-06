@@ -4,9 +4,8 @@ type Fields map[string]interface{}
 
 type Logger interface {
 	FieldLogger
+	With(fields Fields)
 
-	WithField(key string, value interface{}) Logger
-	WithFields(fields Fields) Logger
 }
 
 type FieldLogger interface {
