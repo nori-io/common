@@ -1,13 +1,13 @@
 package logger
 
-type Field struct {
-	Key   string
-	Value string
-}
-
 type Logger interface {
 	FieldLogger
 	With(fields ...Field)
+}
+
+type Field struct {
+	Key   string
+	Value string
 }
 
 type FieldLogger interface {
