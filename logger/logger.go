@@ -29,8 +29,6 @@ type FieldLogger interface {
 	Debug(format string, opts ...interface{})
 	// Printf is like fmt.Printf, push to log entry with debug level
 	Printf(format string, opts ...interface{})
-	// Write push to log entry with debug level
-	Write(p []byte) (n int, err error)
 	// Log push to log with specified level
 	Log(level Level, format string, opts ...interface{})
 }
