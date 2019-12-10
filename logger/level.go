@@ -55,7 +55,7 @@ func (l Level) String() string {
 	case LevelCritical:
 		return LevelCriticalStr
 	case LevelFatal:
-		return LevelNoticeStr
+		return LevelFatalStr
 	case LevelPanic:
 		return LevelPanicStr
 	}
