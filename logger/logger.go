@@ -2,7 +2,7 @@ package logger
 
 type Logger interface {
 	FieldLogger
-	With(fields ...Field)
+	With(fields ...Field) Logger
 }
 
 type Field struct {
@@ -27,8 +27,6 @@ type FieldLogger interface {
 	Notice(format string, opts ...interface{})
 	// Panic logs a message with panic level and then throws the panic
 	Panic(format string, opts ...interface{})
-	// Printf is like fmt.Printf, push to log entry with debug level
-	Printf(format string, opts ...interface{})
 	// Warning push to log entry with warning level
 	Warning(format string, opts ...interface{})
 }
