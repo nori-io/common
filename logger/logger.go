@@ -2,7 +2,7 @@ package logger
 
 type Hook interface {
 	Levels() []Level
-	Fire(field []Field) error
+	Fire(fields ...Field) error
 }
 
 type Logger interface {
