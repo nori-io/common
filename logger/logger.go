@@ -1,7 +1,13 @@
 package logger
 
+type Hook interface {
+	Levels() []Level
+	Fire(field []Field) error
+}
+
 type Logger interface {
 	FieldLogger
+	AddHook(hook Hook)
 	With(fields ...Field) Logger
 }
 
