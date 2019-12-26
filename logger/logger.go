@@ -1,8 +1,8 @@
 package logger
 
 type Hook interface {
-	Levels() []Level
-	Fire(level Level, message []byte) error
+	Levels()[]Level
+	Fire(level Level, message []byte)error
 }
 
 type Logger interface {
