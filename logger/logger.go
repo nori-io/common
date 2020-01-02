@@ -6,7 +6,7 @@ type Hook interface {
 }
 
 type Formatter interface {
-	Format(field ...Field) ([]byte, error)
+	Format(msg string, ts string, field ...Field) ([]byte, error)
 }
 
 type Logger interface {
