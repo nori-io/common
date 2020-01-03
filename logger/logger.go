@@ -1,23 +1,32 @@
 package logger
 
+import "time"
+
 type Hook interface {
 	Levels() []Level
 	Fire(level Level, message []byte) error
 }
 
+type Field struct {
+	Key   string
+	Value string
+}
+
+type Entry struct {
+	Level      Level
+	Time       time.Time
+	LoggerName string
+	Message    string
+}
+
 type Formatter interface {
-	Format(msg string, ts string, field ...Field) ([]byte, error)
+	Format(e Entry, field ...Field) ([]byte, error)
 }
 
 type Logger interface {
 	FieldLogger
 	AddHook(hook Hook)
 	With(fields ...Field) Logger
-}
-
-type Field struct {
-	Key   string
-	Value string
 }
 
 type FieldLogger interface {
