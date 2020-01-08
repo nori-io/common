@@ -1,5 +1,7 @@
 package storage
 
+import "fmt"
+
 type (
 	Storage interface {
 		SQL() SQL
@@ -31,4 +33,12 @@ type (
 	Table interface {
 		TableName() string
 	}
+
+	NotFound struct {
+		Entity string
+	}
 )
+
+func (e NotFound) Error() string {
+	return fmt.Sprintf("Entity %s not found", e.Entity)
+}
