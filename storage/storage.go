@@ -42,6 +42,8 @@ type (
 		Seek(seek string) (key string, value []byte)
 		// Delete removes current key-value
 		Delete() error
+		// HasNext returns true if next element exists
+		HasNext() bool
 	}
 
 	NotFound struct {
