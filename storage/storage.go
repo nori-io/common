@@ -38,7 +38,7 @@ type (
 		Prev() (key string, value []byte)
 		// Seek moves the cursor to a seek key and returns it,
 		// If the key does not exist then then next key is used.
-		// If there are no keys, a nil key is returned
+		// If there are no keys, an empty key is returned
 		Seek(seek string) (key string, value []byte)
 		// Delete removes current key-value
 		Delete() error
