@@ -22,5 +22,5 @@ type Registry interface {
 	ID(id meta.ID) (interface{}, error)
 	Interface(i meta.Interface) (interface{}, error)
 	Resolve(dep meta.Dependency) (interface{}, error)
-	Logger() logger.Logger
+	Logger(m meta.Meta) logger.Logger
 }
