@@ -13,9 +13,10 @@ type Field struct {
 }
 
 type Entry struct {
-	Level   Level
-	Time    time.Time
-	Message string
+	Formatter Formatter
+	Level     Level
+	Time      time.Time
+	Message   string
 }
 
 type Formatter interface {
