@@ -4,7 +4,7 @@ import "time"
 
 type Hook interface {
 	Levels() []Level
-	Fire(level Level, field ...Field) error
+	Fire(e Entry, field ...Field) error
 }
 
 type Field struct {
