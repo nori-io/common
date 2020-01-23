@@ -13,7 +13,7 @@ limitations under the License.
 
 package config
 
-import "github.com/nori-io/nori-common/meta"
+import "github.com/nori-io/nori-common/v2/meta"
 
 type Manager interface {
 	Register(meta.Meta) Config

@@ -7,9 +7,9 @@ package mock_plugin
 import (
 	context "context"
 	gomock "github.com/golang/mock/gomock"
-	config "github.com/nori-io/nori-common/config"
-	meta "github.com/nori-io/nori-common/meta"
-	plugin "github.com/nori-io/nori-common/plugin"
+	config "github.com/nori-io/nori-common/v2/config"
+	meta "github.com/nori-io/nori-common/v2/meta"
+	plugin "github.com/nori-io/nori-common/v2/plugin"
 	reflect "reflect"
 )
 

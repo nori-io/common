@@ -6,7 +6,7 @@ package mock_logger
 
 import (
 	gomock "github.com/golang/mock/gomock"
-	logger "github.com/nori-io/nori-common/logger"
+	logger "github.com/nori-io/nori-common/v2/logger"
 	reflect "reflect"
 )
 
@@ -48,17 +48,22 @@ func (mr *MockHookMockRecorder) Levels() *gomock.Call {
 }
 
 // Fire mocks base method
-func (m *MockHook) Fire(level logger.Level, message []byte) error {
+func (m *MockHook) Fire(e logger.Entry, field ...logger.Field) error {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Fire", level, message)
+	varargs := []interface{}{e}
+	for _, a := range field {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "Fire", varargs...)
 	ret0, _ := ret[0].(error)
 	return ret0
 }
 
 // Fire indicates an expected call of Fire
-func (mr *MockHookMockRecorder) Fire(level, message interface{}) *gomock.Call {
+func (mr *MockHookMockRecorder) Fire(e interface{}, field ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Fire", reflect.TypeOf((*MockHook)(nil).Fire), level, message)
+	varargs := append([]interface{}{e}, field...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Fire", reflect.TypeOf((*MockHook)(nil).Fire), varargs...)
 }
 
 // MockFormatter is a mock of Formatter interface

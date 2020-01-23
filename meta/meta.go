@@ -16,7 +16,7 @@ package meta
 import (
 	"fmt"
 
-	"github.com/nori-io/nori-common/version"
+	"github.com/nori-io/nori-common/v2/version"
 )
 
 type PluginID string

@@ -6,7 +6,7 @@ package mock_storage
 
 import (
 	gomock "github.com/golang/mock/gomock"
-	storage "github.com/nori-io/nori-common/storage"
+	storage "github.com/nori-io/nori-common/v2/storage"
 	reflect "reflect"
 )
 

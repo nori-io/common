@@ -6,7 +6,7 @@ package mock_meta
 
 import (
 	gomock "github.com/golang/mock/gomock"
-	meta "github.com/nori-io/nori-common/meta"
+	meta "github.com/nori-io/nori-common/v2/meta"
 	reflect "reflect"
 )
 

@@ -6,8 +6,8 @@ package mock_plugin
 
 import (
 	gomock "github.com/golang/mock/gomock"
-	logger "github.com/nori-io/nori-common/logger"
-	meta "github.com/nori-io/nori-common/meta"
+	logger "github.com/nori-io/nori-common/v2/logger"
+	meta "github.com/nori-io/nori-common/v2/meta"
 	reflect "reflect"
 )
 
@@ -80,15 +80,15 @@ func (mr *MockRegistryMockRecorder) Resolve(dep interface{}) *gomock.Call {
 }
 
 // Logger mocks base method
-func (m *MockRegistry) Logger() logger.Logger {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Logger")
+func (m_2 *MockRegistry) Logger(m meta.Meta) logger.Logger {
+	m_2.ctrl.T.Helper()
+	ret := m_2.ctrl.Call(m_2, "Logger", m)
 	ret0, _ := ret[0].(logger.Logger)
 	return ret0
 }
 
 // Logger indicates an expected call of Logger
-func (mr *MockRegistryMockRecorder) Logger() *gomock.Call {
+func (mr *MockRegistryMockRecorder) Logger(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Logger", reflect.TypeOf((*MockRegistry)(nil).Logger))
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Logger", reflect.TypeOf((*MockRegistry)(nil).Logger), m)
 }

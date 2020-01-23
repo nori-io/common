@@ -16,8 +16,8 @@ package plugin
 import (
 	"context"
 
-	"github.com/nori-io/nori-common/config"
-	"github.com/nori-io/nori-common/meta"
+	"github.com/nori-io/nori-common/v2/config"
+	"github.com/nori-io/nori-common/v2/meta"
 )
 
 type Plugin interface {

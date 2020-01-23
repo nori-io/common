@@ -15,7 +15,7 @@ package meta_test
 import (
 	"testing"
 
-	"github.com/nori-io/nori-common/meta"
+	"github.com/nori-io/nori-common/v2/meta"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -53,11 +53,12 @@ func TestData_MetaInterface(t *testing.T) {
 
 	Interface := meta.Interface("Custom@1.0.0")
 
-	license := meta.License{
-		Title: "Apache 2.0 License",
-		Type:  "Apache 2.0",
-		URI:   "http://www.apache.org/licenses/LICENSE-2.0",
-	}
+	license := []meta.License{
+		meta.License{
+			Title: "Apache 2.0 License",
+			Type:  "Apache 2.0",
+			URI:   "http://www.apache.org/licenses/LICENSE-2.0",
+		}}
 
 	links := []meta.Link{
 		meta.Link{

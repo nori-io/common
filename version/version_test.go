@@ -3,7 +3,7 @@ package version_test
 import (
 	"testing"
 
-	"github.com/nori-io/nori-common/version"
+	"github.com/nori-io/nori-common/v2/version"
 	"github.com/stretchr/testify/assert"
 )
 
