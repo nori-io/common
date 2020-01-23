@@ -12,6 +12,8 @@ type (
 		Bucket(name string) (Bucket, error)
 		// DeleteBucket deletes a bucket with the given name.
 		DeleteBucket(name string) error
+		// Close current storage: connection to db, file etc
+		Close() error
 	}
 
 	// Bucket represents a collection of key/value pairs
@@ -44,6 +46,8 @@ type (
 		Delete() error
 		// HasNext returns true if next element exists
 		HasNext() bool
+		// Free current cursor, close cursor transactions, free used memory etc
+		Close() error
 	}
 
 	NotFound struct {
