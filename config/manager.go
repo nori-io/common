@@ -13,7 +13,10 @@ limitations under the License.
 
 package config
 
-import "github.com/nori-io/nori-common/v2/meta"
+import (
+	"github.com/nori-io/nori-common/v2/config/types"
+	"github.com/nori-io/nori-common/v2/meta"
+)
 
 type Manager interface {
 	Register(meta.Meta) Config
@@ -63,4 +66,5 @@ type (
 type Variable struct {
 	Name        string
 	Description string
+	Type        types.Kind
 }
