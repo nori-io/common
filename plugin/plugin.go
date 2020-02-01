@@ -23,7 +23,7 @@ import (
 type Plugin interface {
 	Meta() meta.Meta
 	Instance() interface{}
-	Init(ctx context.Context, config config.Manager) error
+	Init(ctx context.Context, config config.Config) error
 	Start(ctx context.Context, registry Registry) error
 	Stop(ctx context.Context, registry Registry) error
 }
