@@ -17,13 +17,14 @@ import (
 	"context"
 
 	"github.com/nori-io/nori-common/v2/config"
+	"github.com/nori-io/nori-common/v2/logger"
 	"github.com/nori-io/nori-common/v2/meta"
 )
 
 type Plugin interface {
 	Meta() meta.Meta
 	Instance() interface{}
-	Init(ctx context.Context, config config.Config) error
+	Init(ctx context.Context, config config.Config, log logger.FieldLogger) error
 	Start(ctx context.Context, registry Registry) error
 	Stop(ctx context.Context, registry Registry) error
 }

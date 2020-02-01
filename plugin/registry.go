@@ -14,7 +14,6 @@ limitations under the License.
 package plugin
 
 import (
-	"github.com/nori-io/nori-common/v2/logger"
 	"github.com/nori-io/nori-common/v2/meta"
 )
 
@@ -22,5 +21,4 @@ type Registry interface {
 	ID(id meta.ID) (interface{}, error)
 	Interface(i meta.Interface) (interface{}, error)
 	Resolve(dep meta.Dependency) (interface{}, error)
-	Logger(m meta.Meta) logger.Logger
 }
