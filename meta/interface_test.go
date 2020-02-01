@@ -57,11 +57,22 @@ func TestInterface_IsUndefined(t *testing.T) {
 	a.False(auth.IsUndefined())
 }
 
+func TestInterface_String(t *testing.T) {
+	a := assert.New(t)
+	s1 := "nori/test@1.0.0"
+	i1 := meta.Interface(s1)
+	a.Equal(s1, i1.String())
+
+	s2 := "nori/test"
+	i2 := meta.Interface(s2)
+	a.Equal(s2, i2.String())
+}
+
 func TestInterface_NameAndVersion(t *testing.T) {
 	a := assert.New(t)
 
 	noVersion := "0.0.0"
-	name := "nori/Auth"
+	name := "nori/Test"
 	ver := "1.2.3"
 
 	empty := meta.Interface("")
@@ -76,4 +87,11 @@ func TestInterface_NameAndVersion(t *testing.T) {
 
 	a.Equal(name, authWithVersion.Name())
 	a.Equal(ver, authWithVersion.Version())
+}
+
+func TestInterface_NameAndNoVersion(t *testing.T) {
+	a := assert.New(t)
+	i := "nori/test"
+	auth := meta.Interface(i)
+	a.Equal(i, auth.String())
 }

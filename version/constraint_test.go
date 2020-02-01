@@ -7,6 +7,22 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func TestConstraint_NewConstraint(t *testing.T) {
+	a := assert.New(t)
+
+	_, e := version.NewConstraint(">=2.5.0")
+	a.NoError(e)
+
+	_, e = version.NewConstraint("^2.5.0")
+	a.NoError(e)
+
+	_, e = version.NewConstraint("")
+	a.Error(e)
+
+	_, e = version.NewConstraint("word")
+	a.Error(e)
+}
+
 func TestConstraint_Check(t *testing.T) {
 	a := assert.New(t)
 

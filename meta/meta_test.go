@@ -57,7 +57,13 @@ func TestData_MetaInterface(t *testing.T) {
 			Title: "Apache 2.0 License",
 			Type:  "Apache 2.0",
 			URI:   "http://www.apache.org/licenses/LICENSE-2.0",
-		}}
+		},
+	}
+
+	repo := meta.Repository{
+		Type: "git",
+		URI:  "github.com/nori-io/nori-common",
+	}
 
 	links := []meta.Link{
 		meta.Link{
@@ -77,6 +83,7 @@ func TestData_MetaInterface(t *testing.T) {
 		Interface:    meta.Interface(Interface),
 		License:      license,
 		Links:        links,
+		Repository:   repo,
 		Tags:         tags,
 	}
 
@@ -88,6 +95,110 @@ func TestData_MetaInterface(t *testing.T) {
 	a.Equal(Interface, data.GetInterface(), "incorrect Interface")
 	a.Equal(license, data.GetLicense(), "incorrect License")
 	a.Equal(links, data.GetLinks(), "incorrect links")
+	a.Equal(repo, data.GetRepository(), "incorrect repo")
 	a.Equal(tags, data.GetTags(), "incorrect tags")
 
+}
+
+func TestDependency_GetConstraint(t *testing.T) {
+	a := assert.New(t)
+
+	dep1 := meta.Dependency{
+		Constraint: "^1.2.0",
+		Interface:  "nori/Test",
+	}
+	_, err := dep1.GetConstraint()
+	a.NoError(err)
+
+	dep2 := meta.Dependency{
+		Constraint: "",
+		Interface:  "nori/Test",
+	}
+	_, err = dep2.GetConstraint()
+	a.Error(err)
+
+	dep3 := meta.Dependency{
+		Constraint: "word",
+		Interface:  "nori/Test",
+	}
+	_, err = dep3.GetConstraint()
+	a.Error(err)
+}
+
+func TestDependency_String(t *testing.T) {
+	a := assert.New(t)
+
+	a.Equal("dependency(interface: nori/Test, constraint: ^1.2.0)", meta.Dependency{
+		Constraint: "^1.2.0",
+		Interface:  "nori/Test",
+	}.String())
+
+	a.Equal("dependency(interface: nori/Test, constraint: )", meta.Dependency{
+		Interface: "nori/Test",
+	}.String())
+}
+
+func TestCore_GetConstraint(t *testing.T) {
+	a := assert.New(t)
+
+	core1 := meta.Core{
+		VersionConstraint: "^1.2.0",
+	}
+	_, err := core1.GetConstraint()
+	a.NoError(err)
+
+	core2 := meta.Core{
+		VersionConstraint: "",
+	}
+	_, err = core2.GetConstraint()
+	a.Error(err)
+
+	core3 := meta.Core{
+		VersionConstraint: "word",
+	}
+	_, err = core3.GetConstraint()
+	a.Error(err)
+}
+
+func TestID_String(t *testing.T) {
+	a := assert.New(t)
+
+	a.Equal("nori/Test:1.2.0", meta.ID{
+		ID:      "nori/Test",
+		Version: "1.2.0",
+	}.String())
+
+	a.Equal("nori/Test:", meta.ID{
+		ID:      "nori/Test",
+		Version: "",
+	}.String())
+
+	a.Equal("nori/Test:word", meta.ID{
+		ID:      "nori/Test",
+		Version: "word",
+	}.String())
+}
+
+func TestID_GetVersion(t *testing.T) {
+	a := assert.New(t)
+
+	v, err := meta.ID{
+		ID:      "nori/Test",
+		Version: "1.2.0",
+	}.GetVersion()
+
+	a.Equal("1.2.0", v.String())
+	a.NoError(err)
+
+	_, err = meta.ID{
+		ID:      "nori/Test",
+		Version: "",
+	}.GetVersion()
+	a.Error(err)
+
+	_, err = meta.ID{
+		ID:      "nori/Test",
+		Version: "word",
+	}.GetVersion()
+	a.Error(err)
 }
