@@ -34,7 +34,6 @@ func TestData_MetaInterface(t *testing.T) {
 
 	dependencies := []meta.Dependency{
 		meta.Dependency{
-			ID:         meta.PluginID("nori/a"),
 			Constraint: ">=1.0.0",
 		},
 		meta.Dependency{
