@@ -8,6 +8,7 @@ import (
 	context "context"
 	gomock "github.com/golang/mock/gomock"
 	config "github.com/nori-io/nori-common/v2/config"
+	logger "github.com/nori-io/nori-common/v2/logger"
 	meta "github.com/nori-io/nori-common/v2/meta"
 	plugin "github.com/nori-io/nori-common/v2/plugin"
 	reflect "reflect"
@@ -65,17 +66,17 @@ func (mr *MockPluginMockRecorder) Instance() *gomock.Call {
 }
 
 // Init mocks base method
-func (m *MockPlugin) Init(ctx context.Context, config config.Manager) error {
+func (m *MockPlugin) Init(ctx context.Context, config config.Config, log logger.FieldLogger) error {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Init", ctx, config)
+	ret := m.ctrl.Call(m, "Init", ctx, config, log)
 	ret0, _ := ret[0].(error)
 	return ret0
 }
 
 // Init indicates an expected call of Init
-func (mr *MockPluginMockRecorder) Init(ctx, config interface{}) *gomock.Call {
+func (mr *MockPluginMockRecorder) Init(ctx, config, log interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Init", reflect.TypeOf((*MockPlugin)(nil).Init), ctx, config)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Init", reflect.TypeOf((*MockPlugin)(nil).Init), ctx, config, log)
 }
 
 // Start mocks base method

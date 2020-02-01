@@ -92,6 +92,20 @@ func (mr *MockStorageMockRecorder) DeleteBucket(name interface{}) *gomock.Call {
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteBucket", reflect.TypeOf((*MockStorage)(nil).DeleteBucket), name)
 }
 
+// Close mocks base method
+func (m *MockStorage) Close() error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "Close")
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// Close indicates an expected call of Close
+func (mr *MockStorageMockRecorder) Close() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Close", reflect.TypeOf((*MockStorage)(nil).Close))
+}
+
 // MockBucket is a mock of Bucket interface
 type MockBucket struct {
 	ctrl     *gomock.Controller
@@ -390,4 +404,18 @@ func (m *MockCursor) HasNext() bool {
 func (mr *MockCursorMockRecorder) HasNext() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "HasNext", reflect.TypeOf((*MockCursor)(nil).HasNext))
+}
+
+// Close mocks base method
+func (m *MockCursor) Close() error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "Close")
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// Close indicates an expected call of Close
+func (mr *MockCursorMockRecorder) Close() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Close", reflect.TypeOf((*MockCursor)(nil).Close))
 }
