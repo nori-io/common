@@ -56,7 +56,6 @@ func (d Core) GetConstraint() (version.Constraints, error) {
 }
 
 type Dependency struct {
-	ID         PluginID
 	Constraint string
 	Interface  Interface
 }
@@ -70,7 +69,7 @@ func (d Dependency) GetConstraint() (version.Constraints, error) {
 }
 
 func (d Dependency) String() string {
-	return fmt.Sprintf("[%s:%s][interface: %s]", d.ID, d.Constraint, d.Interface)
+	return fmt.Sprintf("dependency(interface: %s, constraint: %s)", d.Interface, d.Constraint)
 }
 
 type Description struct {

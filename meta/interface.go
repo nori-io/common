@@ -29,8 +29,7 @@ func NewInterface(name, version string) Interface {
 
 func (i Interface) Dependency() Dependency {
 	return Dependency{
-		ID:         "",
-		Constraint: "",
+		Constraint: "^" + i.Version(),
 		Interface:  i,
 	}
 }
