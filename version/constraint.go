@@ -1,9 +1,7 @@
 package version
 
 import (
-	"strings"
-
-	"github.com/hashicorp/go-version"
+	"github.com/Masterminds/semver/v3"
 )
 
 type Constraints interface {
@@ -12,48 +10,24 @@ type Constraints interface {
 }
 
 type constraint struct {
-	constraint *version.Constraint
+	constraint *semver.Constraints
 }
 
-type constraints []*constraint
-
 func NewConstraint(v string) (Constraints, error) {
-	cs, err := version.NewConstraint(v)
+	cs, err := semver.NewConstraint(v)
 	if err != nil {
 		return nil, err
 	}
-	csList := constraints{}
-	for _, c := range cs {
-		csList = append(csList, &constraint{
-			constraint: c,
-		})
-	}
-	return csList, nil
+	return &constraint{
+		constraint: cs,
+	}, nil
 }
 
 func (cs constraint) Check(v Version) bool {
-	ver, _ := version.NewSemver(v.Original())
+	ver, _ := semver.NewVersion(v.Original())
 	return cs.constraint.Check(ver)
 }
 
 func (cs constraint) String() string {
 	return cs.constraint.String()
-}
-
-func (cs constraints) Check(v Version) bool {
-	for _, c := range cs {
-		if !c.Check(v) {
-			return false
-		}
-	}
-
-	return true
-}
-
-func (cs constraints) String() string {
-	items := make([]string, len(cs))
-	for i, c := range cs {
-		items[i] = c.String()
-	}
-	return strings.Join(items, ",")
 }

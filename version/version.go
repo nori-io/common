@@ -1,7 +1,7 @@
 package version
 
 import (
-	"github.com/hashicorp/go-version"
+	"github.com/Masterminds/semver/v3"
 )
 
 type Version interface {
@@ -40,11 +40,11 @@ type Version interface {
 }
 
 type ver struct {
-	semVer *version.Version
+	semVer *semver.Version
 }
 
 func NewVersion(v string) (Version, error) {
-	semVer, err := version.NewSemver(v)
+	semVer, err := semver.NewVersion(v)
 	if err != nil {
 		return nil, err
 	}
@@ -54,13 +54,13 @@ func NewVersion(v string) (Version, error) {
 }
 
 func (v *ver) Compare(other Version) int {
-	o, _ := version.NewSemver(other.String())
+	o, _ := semver.NewVersion(other.String())
 	return v.semVer.Compare(o)
 }
 
 // Equal tests if two versions are equal.
 func (v *ver) Equal(other Version) bool {
-	o, _ := version.NewSemver(other.String())
+	o, _ := semver.NewVersion(other.String())
 	return v.semVer.Equal(o)
 }
 
@@ -78,7 +78,11 @@ func (v *ver) Prerelease() string {
 
 // Segments returns the numeric segments of the version as a slice of ints.
 func (v *ver) Segments() []int {
-	return v.semVer.Segments()
+	return []int{
+		int(v.semVer.Major()),
+		int(v.semVer.Minor()),
+		int(v.semVer.Patch()),
+	}
 }
 
 // String returns the full version string included pre-release
