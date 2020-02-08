@@ -14,7 +14,7 @@ test: ## run go tests
 .PHONY: test
 
 test-with-coverage: ## run go test with coverage
-	@go test -race -covermode atomic -coverprofile profile.out ${TEST_ARGS} ./... ;\
+	@go test -race -covermode atomic -coverprofile profile.out ./... ;\
 	go tool cover -func=profile.out
 .PHONY: test-with-coverage
 
