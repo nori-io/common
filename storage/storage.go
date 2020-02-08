@@ -13,7 +13,11 @@ limitations under the License.
 
 package storage
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/nori-io/nori-common/v2/meta"
+)
 
 type (
 	Storage interface {
@@ -71,6 +75,8 @@ type (
 		Entity string
 	}
 )
+
+const StorageInterface meta.Interface = "core/Storage@1.0.0"
 
 func (e NotFound) Error() string {
 	return fmt.Sprintf("Entity %s not found", e.Entity)

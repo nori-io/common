@@ -15,11 +15,6 @@ package logger
 
 import "time"
 
-type Hook interface {
-	Levels() []Level
-	Fire(e Entry, field ...Field) error
-}
-
 type Field struct {
 	Key   string
 	Value string
