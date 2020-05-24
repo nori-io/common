@@ -20,6 +20,7 @@ import (
 )
 
 type (
+	//go:generate mockgen -destination=../mocks/storage_storage.go -package=mocks github.com/nori-io/nori-common/storage Storage
 	Storage interface {
 		// CreateBucket creates a new bucket with the given name and returns it.
 		CreateBucket(name string) (Bucket, error)
@@ -34,11 +35,13 @@ type (
 	}
 
 	// Bucket represents a collection of key/value pairs
+	//go:generate mockgen -destination=../mocks/storage_bucket.go -package=mocks github.com/nori-io/nori-common/storage Bucket
 	Bucket interface {
 		KeyValue
 		Cursor() Cursor
 	}
 
+	//go:generate mockgen -destination=../mocks/storage_key_value.go -package=mocks github.com/nori-io/nori-common/storage KeyValue
 	KeyValue interface {
 		// Get retrieves the value for a key.
 		Get(key string) ([]byte, error)
@@ -50,6 +53,7 @@ type (
 		ForEach(fn func(k string, v []byte) error) error
 	}
 
+	//go:generate mockgen -destination=../mocks/storage_cursor.go -package=mocks github.com/nori-io/nori-common/storage Cursor
 	Cursor interface {
 		First() (key string, value []byte)
 		Last() (key string, value []byte)

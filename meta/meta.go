@@ -93,6 +93,7 @@ type Repository struct {
 	URI  string
 }
 
+//go:generate mockgen -destination=../mocks/meta_meta.go -package=mocks github.com/nori-io/nori-common/meta Meta
 type Meta interface {
 	Id() ID
 	GetAuthor() Author

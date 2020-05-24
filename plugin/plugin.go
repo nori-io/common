@@ -21,6 +21,7 @@ import (
 	"github.com/nori-io/nori-common/v2/meta"
 )
 
+//go:generate mockgen -destination=../mocks/plugin_plugin.go -package=mocks github.com/nori-io/nori-common/plugin Plugin
 type Plugin interface {
 	Meta() meta.Meta
 	Instance() interface{}
@@ -29,6 +30,7 @@ type Plugin interface {
 	Stop(ctx context.Context, registry Registry) error
 }
 
+//go:generate mockgen -destination=../mocks/plugin_installable.go -package=mocks github.com/nori-io/nori-common/plugin Installable
 type Installable interface {
 	Install(ctx context.Context, registry Registry) error
 	UnInstall(ctx context.Context, registry Registry) error
