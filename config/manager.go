@@ -18,7 +18,7 @@ import (
 	"github.com/nori-io/nori-common/v2/meta"
 )
 
-//go:generate mockgen -destination=../mocks/config_manager.go -package=mocks github.com/nori-io/nori-common/config Manager
+//go:generate mockgen -destination=../mocks/config_manager.go -package=mocks github.com/nori-io/nori-common/v2/config Manager
 type Manager interface {
 	Register(id meta.ID) Config
 	PluginVariables(id meta.ID) []Variable

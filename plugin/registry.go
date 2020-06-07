@@ -17,7 +17,7 @@ import (
 	"github.com/nori-io/nori-common/v2/meta"
 )
 
-//go:generate mockgen -destination=../mocks/plugin_registry.go -package=mocks github.com/nori-io/nori-common/plugin Registry
+//go:generate mockgen -destination=../mocks/plugin_registry.go -package=mocks github.com/nori-io/nori-common/v2/plugin Registry
 type Registry interface {
 	ID(id meta.ID) (interface{}, error)
 	Interface(i meta.Interface) (interface{}, error)

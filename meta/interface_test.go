@@ -28,8 +28,7 @@ func TestInterface_Dependency(t *testing.T) {
 	dep := i.Dependency()
 
 	a.Equal(meta.Dependency{
-		Constraint: "^1.0.0",
-		Interface:  i,
+		Interface: i,
 	}, dep)
 }
 

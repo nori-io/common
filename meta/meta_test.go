@@ -35,9 +35,6 @@ func TestData_MetaInterface(t *testing.T) {
 
 	dependencies := []meta.Dependency{
 		meta.Dependency{
-			Constraint: ">=1.0.0",
-		},
-		meta.Dependency{
 			Interface: meta.Interface("Auth@1.0.0"),
 		},
 	}
@@ -105,22 +102,19 @@ func TestDependency_GetConstraint(t *testing.T) {
 	a := assert.New(t)
 
 	dep1 := meta.Dependency{
-		Constraint: "^1.2.0",
-		Interface:  "nori/Test",
+		Interface: "nori/Test@1.2.0",
 	}
 	_, err := dep1.GetConstraint()
 	a.NoError(err)
 
 	dep2 := meta.Dependency{
-		Constraint: "",
-		Interface:  "nori/Test",
+		Interface: "nori/Test",
 	}
 	_, err = dep2.GetConstraint()
-	a.Error(err)
+	a.NoError(err)
 
 	dep3 := meta.Dependency{
-		Constraint: "word",
-		Interface:  "nori/Test",
+		Interface: "nori/Test@word",
 	}
 	_, err = dep3.GetConstraint()
 	a.Error(err)
@@ -129,12 +123,11 @@ func TestDependency_GetConstraint(t *testing.T) {
 func TestDependency_String(t *testing.T) {
 	a := assert.New(t)
 
-	a.Equal("dependency(interface: nori/Test, constraint: ^1.2.0)", meta.Dependency{
-		Constraint: "^1.2.0",
-		Interface:  "nori/Test",
+	a.Equal("dependency(interface: nori/Test@1.2.0, constraint: ^1.2.0)", meta.Dependency{
+		Interface: "nori/Test@1.2.0",
 	}.String())
 
-	a.Equal("dependency(interface: nori/Test, constraint: )", meta.Dependency{
+	a.Equal("dependency(interface: nori/Test, constraint: ^0.0.0)", meta.Dependency{
 		Interface: "nori/Test",
 	}.String())
 }

@@ -27,10 +27,13 @@ func NewInterface(name, version string) Interface {
 	return Interface(fmt.Sprintf("%s@%s", name, version))
 }
 
+func (i Interface) Constraint() string {
+	return "^" + i.Version()
+}
+
 func (i Interface) Dependency() Dependency {
 	return Dependency{
-		Constraint: "^" + i.Version(),
-		Interface:  i,
+		Interface: i,
 	}
 }
 

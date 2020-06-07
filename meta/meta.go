@@ -56,12 +56,11 @@ func (d Core) GetConstraint() (version.Constraints, error) {
 }
 
 type Dependency struct {
-	Constraint string
-	Interface  Interface
+	Interface Interface
 }
 
 func (d Dependency) GetConstraint() (version.Constraints, error) {
-	constraints, err := version.NewConstraint(d.Constraint)
+	constraints, err := version.NewConstraint(d.Interface.Constraint())
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +68,7 @@ func (d Dependency) GetConstraint() (version.Constraints, error) {
 }
 
 func (d Dependency) String() string {
-	return fmt.Sprintf("dependency(interface: %s, constraint: %s)", d.Interface, d.Constraint)
+	return fmt.Sprintf("dependency(interface: %s, constraint: %s)", d.Interface, d.Interface.Constraint())
 }
 
 type Description struct {
@@ -93,7 +92,7 @@ type Repository struct {
 	URI  string
 }
 
-//go:generate mockgen -destination=../mocks/meta_meta.go -package=mocks github.com/nori-io/nori-common/meta Meta
+//go:generate mockgen -destination=../mocks/meta_meta.go -package=mocks github.com/nori-io/nori-common/v2/meta Meta
 type Meta interface {
 	Id() ID
 	GetAuthor() Author
