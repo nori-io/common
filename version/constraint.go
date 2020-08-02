@@ -17,6 +17,7 @@ import (
 	"github.com/Masterminds/semver/v3"
 )
 
+//go:generate mockgen -destination=../mocks/version_constraints.go -package=mocks github.com/nori-io/nori-common/v2/version Constraints
 type Constraints interface {
 	Check(v Version) bool
 	String() string

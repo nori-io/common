@@ -15,6 +15,7 @@ package logger
 
 import "github.com/nori-io/nori-common/v2/meta"
 
+//go:generate mockgen -destination=../mocks/hook.go -package=mocks github.com/nori-io/nori-common/v2/logger Hook
 type Hook interface {
 	Levels() []Level
 	Fire(e Entry, field ...Field) error

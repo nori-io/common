@@ -24,6 +24,7 @@ type Manager interface {
 	PluginVariables(id meta.ID) []Variable
 }
 
+//go:generate mockgen -destination=../mocks/config_config.go -package=mocks github.com/nori-io/nori-common/v2/config Config
 type Config interface {
 	Bool(key string, desc string) Bool
 	Float(key string, desc string) Float
