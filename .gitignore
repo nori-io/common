@@ -16,6 +16,7 @@ Gopkg.lock
 
 # Testing
 coverage.txt
+coverage.out
 profile.out
 
 # IDE
