@@ -16,7 +16,7 @@ package meta_test
 import (
 	"testing"
 
-	"github.com/nori-io/nori-common/v2/meta"
+	"github.com/nori-io/common/v2/meta"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -60,13 +60,13 @@ func TestData_MetaInterface(t *testing.T) {
 
 	repo := meta.Repository{
 		Type: "git",
-		URI:  "github.com/nori-io/nori-common",
+		URI:  "github.com/nori-io/common",
 	}
 
 	links := []meta.Link{
 		meta.Link{
 			Title: "github",
-			URL:   "https://github.com/nori-io/nori-common",
+			URL:   "https://github.com/nori-io/common",
 		},
 	}
 

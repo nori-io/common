@@ -14,17 +14,17 @@ limitations under the License.
 package config
 
 import (
-	"github.com/nori-io/nori-common/v2/config/types"
-	"github.com/nori-io/nori-common/v2/meta"
+	"github.com/nori-io/common/v2/config/types"
+	"github.com/nori-io/common/v2/meta"
 )
 
-//go:generate mockgen -destination=../mocks/config_manager.go -package=mocks github.com/nori-io/nori-common/v2/config Manager
+//go:generate mockgen -destination=../mocks/config_manager.go -package=mocks github.com/nori-io/common/v2/config Manager
 type Manager interface {
 	Register(id meta.ID) Config
 	PluginVariables(id meta.ID) []Variable
 }
 
-//go:generate mockgen -destination=../mocks/config_config.go -package=mocks github.com/nori-io/nori-common/v2/config Config
+//go:generate mockgen -destination=../mocks/config_config.go -package=mocks github.com/nori-io/common/v2/config Config
 type Config interface {
 	Bool(key string, desc string) Bool
 	Float(key string, desc string) Float

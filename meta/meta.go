@@ -16,7 +16,7 @@ package meta
 import (
 	"fmt"
 
-	"github.com/nori-io/nori-common/v2/version"
+	"github.com/nori-io/common/v2/version"
 )
 
 type PluginID string
@@ -92,7 +92,7 @@ type Repository struct {
 	URI  string
 }
 
-//go:generate mockgen -destination=../mocks/meta_meta.go -package=mocks github.com/nori-io/nori-common/v2/meta Meta
+//go:generate mockgen -destination=../mocks/meta_meta.go -package=mocks github.com/nori-io/common/v2/meta Meta
 type Meta interface {
 	Id() ID
 	GetAuthor() Author
