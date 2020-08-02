@@ -13,9 +13,9 @@ limitations under the License.
 
 package logger
 
-import "github.com/nori-io/common/v2/meta"
+import "github.com/nori-io/common/v3/meta"
 
-//go:generate mockgen -destination=../mocks/hook.go -package=mocks github.com/nori-io/common/v2/logger Hook
+//go:generate mockgen -destination=../mocks/hook.go -package=mocks github.com/nori-io/common/v3/logger Hook
 type Hook interface {
 	Levels() []Level
 	Fire(e Entry, field ...Field) error

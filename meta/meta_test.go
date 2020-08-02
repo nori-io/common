@@ -16,7 +16,7 @@ package meta_test
 import (
 	"testing"
 
-	"github.com/nori-io/common/v2/meta"
+	"github.com/nori-io/common/v3/meta"
 	"github.com/stretchr/testify/assert"
 )
 

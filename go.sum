@@ -7,8 +7,8 @@ github.com/golang/mock v1.3.1/go.mod h1:sBzyDLLjw3U8JLTeZvSv8jJB+tU5PVekmnlKIyFU
 github.com/hashicorp/go-version v1.2.0 h1:3vNe/fWF5CBgRIguda1meWhsZHy3m8gCJ5wx+dIzX/E=
 github.com/hashicorp/go-version v1.2.0/go.mod h1:fltr4n8CU8Ke44wwGCBoEymUuxUHl09ZGVZPK5anwXA=
 github.com/nori-io/common v1.1.0 h1:GUiqIxSbpxbqAxFzWzdIT44/2AOSkjphjL2vEeoknk8=
-github.com/nori-io/common/v2 v2.0.1 h1:rng71/KDgcfYFCrV0KDzJaArXmuk9Nbmy6g5ozlNA48=
-github.com/nori-io/common/v2 v2.0.1/go.mod h1:MSHonSJQvaSTRwGEjZkGQTizhHGzprHlQ5SQ6u4XVtE=
+github.com/nori-io/common/v3 v2.0.1 h1:rng71/KDgcfYFCrV0KDzJaArXmuk9Nbmy6g5ozlNA48=
+github.com/nori-io/common/v3 v2.0.1/go.mod h1:MSHonSJQvaSTRwGEjZkGQTizhHGzprHlQ5SQ6u4XVtE=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/objx v0.1.0 h1:4G4v2dO3VZwixGIRoQ5Lfboy6nUhCyYzaqnIAPPhYs4=

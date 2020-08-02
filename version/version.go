@@ -17,7 +17,7 @@ import (
 	"github.com/Masterminds/semver/v3"
 )
 
-//go:generate mockgen -destination=../mocks/version_version.go -package=mocks github.com/nori-io/common/v2/version Version
+//go:generate mockgen -destination=../mocks/version_version.go -package=mocks github.com/nori-io/common/v3/version Version
 type Version interface {
 	// Compare compares this version to another version. This
 	// returns -1, 0, or 1 if this version is smaller, equal,

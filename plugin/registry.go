@@ -14,10 +14,10 @@ limitations under the License.
 package plugin
 
 import (
-	"github.com/nori-io/common/v2/meta"
+	"github.com/nori-io/common/v3/meta"
 )
 
-//go:generate mockgen -destination=../mocks/plugin_registry.go -package=mocks github.com/nori-io/common/v2/plugin Registry
+//go:generate mockgen -destination=../mocks/plugin_registry.go -package=mocks github.com/nori-io/common/v3/plugin Registry
 type Registry interface {
 	ID(id meta.ID) (interface{}, error)
 	Interface(i meta.Interface) (interface{}, error)

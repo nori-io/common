@@ -18,7 +18,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/nori-io/common/v2/meta"
+	"github.com/nori-io/common/v3/meta"
 )
 
 func TestInterface_Dependency(t *testing.T) {

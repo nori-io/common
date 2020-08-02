@@ -16,7 +16,7 @@ package storage
 import (
 	"fmt"
 
-	"github.com/nori-io/common/v2/meta"
+	"github.com/nori-io/common/v3/meta"
 )
 
 type (
