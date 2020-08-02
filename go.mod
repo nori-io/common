@@ -1,6 +1,6 @@
 module github.com/nori-io/common/v2
 
-go 1.13
+go 1.14
 
 require (
 	github.com/Masterminds/semver/v3 v3.0.3
