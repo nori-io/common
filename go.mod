@@ -1,4 +1,4 @@
-module github.com/nori-io/nori-common/v2
+module github.com/nori-io/common/v2
 
 go 1.13
 
