@@ -1,5 +1,5 @@
 /*
-Copyright 2019 The Nori Authors.
+Copyright 2018-2020 The Nori Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -13,13 +13,18 @@ limitations under the License.
 
 package config
 
-import "github.com/nori-io/nori-common/v2/meta"
+import (
+	"github.com/nori-io/common/v3/config/types"
+	"github.com/nori-io/common/v3/meta"
+)
 
+//go:generate mockgen -destination=../mocks/config_manager.go -package=mocks github.com/nori-io/common/v3/config Manager
 type Manager interface {
-	Register(meta.Meta) Config
+	Register(id meta.ID) Config
 	PluginVariables(id meta.ID) []Variable
 }
 
+//go:generate mockgen -destination=../mocks/config_config.go -package=mocks github.com/nori-io/common/v3/config Config
 type Config interface {
 	Bool(key string, desc string) Bool
 	Float(key string, desc string) Float
@@ -63,4 +68,5 @@ type (
 type Variable struct {
 	Name        string
 	Description string
+	Type        types.Kind
 }

@@ -11,18 +11,14 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package errors
+package logger
 
-import (
-	"fmt"
+import "github.com/nori-io/common/v3/meta"
 
-	"github.com/nori-io/common/v3/meta"
-)
-
-type InterfaceAssertError struct {
-	Interface meta.Interface
+//go:generate mockgen -destination=../mocks/hook.go -package=mocks github.com/nori-io/common/v3/logger Hook
+type Hook interface {
+	Levels() []Level
+	Fire(e Entry, field ...Field) error
 }
 
-func (e InterfaceAssertError) Error() string {
-	return fmt.Sprintf("can't assert interface to %s", e.Interface)
-}
+const HookInterface meta.Interface = "core/logger/Hook@1.0.0"

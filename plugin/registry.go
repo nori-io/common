@@ -1,5 +1,5 @@
 /*
-Copyright 2019 The Nori Authors.
+Copyright 2018-2020 The Nori Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -14,13 +14,12 @@ limitations under the License.
 package plugin
 
 import (
-	"github.com/nori-io/nori-common/v2/logger"
-	"github.com/nori-io/nori-common/v2/meta"
+	"github.com/nori-io/common/v3/meta"
 )
 
+//go:generate mockgen -destination=../mocks/plugin_registry.go -package=mocks github.com/nori-io/common/v3/plugin Registry
 type Registry interface {
 	ID(id meta.ID) (interface{}, error)
 	Interface(i meta.Interface) (interface{}, error)
 	Resolve(dep meta.Dependency) (interface{}, error)
-	Logger(m meta.Meta) logger.Logger
 }

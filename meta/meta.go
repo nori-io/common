@@ -1,5 +1,5 @@
 /*
-Copyright 2019 The Nori Authors.
+Copyright 2018-2020 The Nori Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -16,7 +16,7 @@ package meta
 import (
 	"fmt"
 
-	"github.com/nori-io/nori-common/v2/version"
+	"github.com/nori-io/common/v3/version"
 )
 
 type PluginID string
@@ -56,13 +56,11 @@ func (d Core) GetConstraint() (version.Constraints, error) {
 }
 
 type Dependency struct {
-	ID         PluginID
-	Constraint string
-	Interface  Interface
+	Interface Interface
 }
 
 func (d Dependency) GetConstraint() (version.Constraints, error) {
-	constraints, err := version.NewConstraint(d.Constraint)
+	constraints, err := version.NewConstraint(d.Interface.Constraint())
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +68,7 @@ func (d Dependency) GetConstraint() (version.Constraints, error) {
 }
 
 func (d Dependency) String() string {
-	return fmt.Sprintf("[%s:%s][interface: %s]", d.ID, d.Constraint, d.Interface)
+	return fmt.Sprintf("dependency(interface: %s, constraint: %s)", d.Interface, d.Interface.Constraint())
 }
 
 type Description struct {
@@ -94,6 +92,7 @@ type Repository struct {
 	URI  string
 }
 
+//go:generate mockgen -destination=../mocks/meta_meta.go -package=mocks github.com/nori-io/common/v3/meta Meta
 type Meta interface {
 	Id() ID
 	GetAuthor() Author

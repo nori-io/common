@@ -11,18 +11,22 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package errors
+package types
 
-import (
-	"fmt"
+type Kind uint
 
-	"github.com/nori-io/common/v3/meta"
+const (
+	Invalid Kind = iota
+	Bool
+	Int
+	Int8
+	Int32
+	Int64
+	UInt
+	UInt32
+	UInt64
+	Float
+	Map
+	Slice
+	String
 )
-
-type InterfaceAssertError struct {
-	Interface meta.Interface
-}
-
-func (e InterfaceAssertError) Error() string {
-	return fmt.Sprintf("can't assert interface to %s", e.Interface)
-}

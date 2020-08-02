@@ -1,9 +1,23 @@
+/*
+Copyright 2018-2020 The Nori Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
 package version
 
 import (
-	"github.com/hashicorp/go-version"
+	"github.com/Masterminds/semver/v3"
 )
 
+//go:generate mockgen -destination=../mocks/version_version.go -package=mocks github.com/nori-io/common/v3/version Version
 type Version interface {
 	// Compare compares this version to another version. This
 	// returns -1, 0, or 1 if this version is smaller, equal,
@@ -40,11 +54,11 @@ type Version interface {
 }
 
 type ver struct {
-	semVer *version.Version
+	semVer *semver.Version
 }
 
 func NewVersion(v string) (Version, error) {
-	semVer, err := version.NewSemver(v)
+	semVer, err := semver.NewVersion(v)
 	if err != nil {
 		return nil, err
 	}
@@ -54,13 +68,13 @@ func NewVersion(v string) (Version, error) {
 }
 
 func (v *ver) Compare(other Version) int {
-	o, _ := version.NewSemver(other.String())
+	o, _ := semver.NewVersion(other.String())
 	return v.semVer.Compare(o)
 }
 
 // Equal tests if two versions are equal.
 func (v *ver) Equal(other Version) bool {
-	o, _ := version.NewSemver(other.String())
+	o, _ := semver.NewVersion(other.String())
 	return v.semVer.Equal(o)
 }
 
@@ -78,7 +92,11 @@ func (v *ver) Prerelease() string {
 
 // Segments returns the numeric segments of the version as a slice of ints.
 func (v *ver) Segments() []int {
-	return v.semVer.Segments()
+	return []int{
+		int(v.semVer.Major()),
+		int(v.semVer.Minor()),
+		int(v.semVer.Patch()),
+	}
 }
 
 // String returns the full version string included pre-release

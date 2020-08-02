@@ -1,5 +1,5 @@
 /*
-Copyright 2019 The Nori Authors.
+Copyright 2018-2020 The Nori Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -10,6 +10,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 package meta_test
 
 import (
@@ -17,7 +18,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/nori-io/nori-common/v2/meta"
+	"github.com/nori-io/common/v3/meta"
 )
 
 func TestInterface_Dependency(t *testing.T) {
@@ -27,9 +28,7 @@ func TestInterface_Dependency(t *testing.T) {
 	dep := i.Dependency()
 
 	a.Equal(meta.Dependency{
-		ID:         "",
-		Constraint: "",
-		Interface:  i,
+		Interface: i,
 	}, dep)
 }
 
@@ -58,11 +57,22 @@ func TestInterface_IsUndefined(t *testing.T) {
 	a.False(auth.IsUndefined())
 }
 
+func TestInterface_String(t *testing.T) {
+	a := assert.New(t)
+	s1 := "nori/test@1.0.0"
+	i1 := meta.Interface(s1)
+	a.Equal(s1, i1.String())
+
+	s2 := "nori/test"
+	i2 := meta.Interface(s2)
+	a.Equal(s2, i2.String())
+}
+
 func TestInterface_NameAndVersion(t *testing.T) {
 	a := assert.New(t)
 
 	noVersion := "0.0.0"
-	name := "nori/Auth"
+	name := "nori/Test"
 	ver := "1.2.3"
 
 	empty := meta.Interface("")
@@ -77,4 +87,11 @@ func TestInterface_NameAndVersion(t *testing.T) {
 
 	a.Equal(name, authWithVersion.Name())
 	a.Equal(ver, authWithVersion.Version())
+}
+
+func TestInterface_NameAndNoVersion(t *testing.T) {
+	a := assert.New(t)
+	i := "nori/test"
+	auth := meta.Interface(i)
+	a.Equal(i, auth.String())
 }
