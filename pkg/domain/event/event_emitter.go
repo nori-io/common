@@ -16,7 +16,7 @@ package event
 //go:generate mockgen -destination=../mocks/event/event_emitter.go -package=mocks github.com/nori-io/common/v3/pkg/domain/event EventEmitter
 type EventEmitter interface {
 	Use(pattern string, middleware ...Middleware)
-	On(name string, middleware ...Middleware) (evt <-chan Event, unsubscribe func())
+	On(pattern string, middleware ...Middleware) (evt <-chan Event, unsubscribe func())
 	Emit(event Event)
 }
 
