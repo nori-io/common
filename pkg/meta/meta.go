@@ -9,14 +9,14 @@ import (
 
 type (
 	Meta struct {
-		ID           ID
-		Author       Author
+		ID           meta.ID
+		Author       meta.Author
 		Dependencies []meta.Dependency
-		Description  Description
+		Description  meta.Description
 		Interface    meta.Interface
 		License      []meta.License
 		Links        []meta.Link
-		Repository   Repository
+		Repository   meta.Repository
 		Tags         []string
 	}
 
