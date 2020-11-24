@@ -3,8 +3,10 @@ package event
 type EventName string
 
 const (
+	// core events
 	NoriPluginsInited  EventName = "nori/plugins/inited"
 	NoriPluginsStarted EventName = "nori/plugins/started"
 	NoriPluginsStopped EventName = "nori/plugins/stopped"
-	NoriPlugins        EventName = "nori/plugins/*"
+	// patterns
+	NoriPlugins EventName = "nori/plugins/*"
 )
