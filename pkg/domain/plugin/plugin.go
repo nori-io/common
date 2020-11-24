@@ -16,6 +16,8 @@ package plugin
 import (
 	"context"
 
+	"github.com/nori-io/common/v3/pkg/domain/event"
+
 	"github.com/nori-io/common/v3/pkg/domain/config"
 	"github.com/nori-io/common/v3/pkg/domain/logger"
 	"github.com/nori-io/common/v3/pkg/domain/meta"
@@ -26,7 +28,7 @@ import (
 type Plugin interface {
 	Meta() meta.Meta
 	Instance() interface{}
-	Init(ctx context.Context, config config.Config, log logger.FieldLogger) error
+	Init(ctx context.Context, config config.Config, emitter event.EventEmitter, log logger.FieldLogger) error
 	Start(ctx context.Context, registry registry.Registry) error
 	Stop(ctx context.Context, registry registry.Registry) error
 }
