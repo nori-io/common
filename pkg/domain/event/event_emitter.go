@@ -13,20 +13,16 @@ limitations under the License.
 
 package event
 
-import (
-	enum "github.com/nori-io/common/v3/pkg/domain/enum/event"
-)
-
 //go:generate mockgen -destination=../mocks/event/event_emitter.go -package=mocks github.com/nori-io/common/v3/pkg/domain/event EventEmitter
 type EventEmitter interface {
 	Use(pattern string, middleware ...Middleware)
 	On(pattern string, middleware ...Middleware) (evt <-chan Event, unsubscribe func())
-	Emit(event Event)
+	Emit(name string, params interface{})
 }
 
 type Middleware func(event *Event)
 
 type Event struct {
-	Name   enum.EventName
-	Params map[string]interface{}
+	Name   string
+	Params interface{}
 }
