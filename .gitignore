@@ -18,6 +18,7 @@ Gopkg.lock
 coverage.txt
 coverage.out
 profile.out
+profile.html
 
 # IDE
 .idea/

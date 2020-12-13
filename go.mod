@@ -1,9 +1,8 @@
-module github.com/nori-io/common/v3
+module github.com/nori-io/common/v4
 
-go 1.14
+go 1.15
 
 require (
-	github.com/Masterminds/semver/v3 v3.0.3
-	github.com/golang/mock v1.3.1
-	github.com/stretchr/testify v1.3.0
+	github.com/golang/mock v1.4.4 // indirect
+	github.com/stretchr/testify v1.6.1
 )
