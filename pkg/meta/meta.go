@@ -3,8 +3,8 @@ package meta
 import (
 	"fmt"
 
-	enum "github.com/nori-io/common/v3/pkg/domain/enum/meta"
-	"github.com/nori-io/common/v3/pkg/domain/meta"
+	enum "github.com/nori-io/common/v4/pkg/domain/enum/meta"
+	"github.com/nori-io/common/v4/pkg/domain/meta"
 )
 
 type (

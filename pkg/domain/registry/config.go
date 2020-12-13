@@ -14,13 +14,13 @@ limitations under the License.
 package registry
 
 import (
-	"github.com/nori-io/common/v3/pkg/domain/config"
-	enum "github.com/nori-io/common/v3/pkg/domain/enum/config"
-	"github.com/nori-io/common/v3/pkg/domain/meta"
+	"github.com/nori-io/common/v4/pkg/domain/config"
+	enum "github.com/nori-io/common/v4/pkg/domain/enum/config"
+	"github.com/nori-io/common/v4/pkg/domain/meta"
 )
 
 type (
-	//go:generate mockgen -destination=../mocks/registry/config_registry.go -package=mocks github.com/nori-io/common/v3/pkg/domain/registry ConfigRegistry
+	//go:generate mockgen -destination=../mocks/registry/config_registry.go -package=mocks github.com/nori-io/common/v4/pkg/domain/registry ConfigRegistry
 	ConfigRegistry interface {
 		Register(id meta.ID) config.Config
 		PluginVariables(id meta.ID) []Variable

@@ -14,11 +14,11 @@ limitations under the License.
 package meta
 
 import (
-	enum "github.com/nori-io/common/v3/pkg/domain/enum/meta"
+	enum "github.com/nori-io/common/v4/pkg/domain/enum/meta"
 )
 
 type (
-	//go:generate mockgen -destination=../mocks/meta/meta/meta.go -package=mocks github.com/nori-io/common/v3/pkg/domain/meta Meta
+	//go:generate mockgen -destination=../mocks/meta/meta/meta.go -package=mocks github.com/nori-io/common/v4/pkg/domain/meta Meta
 	Meta interface {
 		GetID() ID
 		GetAuthor() Author
@@ -33,14 +33,14 @@ type (
 
 	PluginID string
 
-	//go:generate mockgen -destination=../mocks/meta/meta/id.go -package=mocks github.com/nori-io/common/v3/pkg/domain/meta ID
+	//go:generate mockgen -destination=../mocks/meta/meta/id.go -package=mocks github.com/nori-io/common/v4/pkg/domain/meta ID
 	ID interface {
 		GetID() PluginID
 		GetVersion() string
 		String() string
 	}
 
-	//go:generate mockgen -destination=../mocks/meta/meta/author.go -package=mocks github.com/nori-io/common/v3/pkg/domain/meta Author
+	//go:generate mockgen -destination=../mocks/meta/meta/author.go -package=mocks github.com/nori-io/common/v4/pkg/domain/meta Author
 	Author interface {
 		GetName() string
 		GetURL() string
@@ -53,26 +53,26 @@ type (
 		Version() string
 	}
 
-	//go:generate mockgen -destination=../mocks/meta/meta/description.go -package=mocks github.com/nori-io/common/v3/pkg/domain/meta Description
+	//go:generate mockgen -destination=../mocks/meta/meta/description.go -package=mocks github.com/nori-io/common/v4/pkg/domain/meta Description
 	Description interface {
 		GetTitle() string
 		GetDescription() string
 	}
 
-	//go:generate mockgen -destination=../mocks/meta/meta/license.go -package=mocks github.com/nori-io/common/v3/pkg/domain/meta License
+	//go:generate mockgen -destination=../mocks/meta/meta/license.go -package=mocks github.com/nori-io/common/v4/pkg/domain/meta License
 	License interface {
 		GetTitle() string
 		GetType() enum.LicenseType
 		GetURL() string
 	}
 
-	//go:generate mockgen -destination=../mocks/meta/meta/link.go -package=mocks github.com/nori-io/common/v3/pkg/domain/meta Link
+	//go:generate mockgen -destination=../mocks/meta/meta/link.go -package=mocks github.com/nori-io/common/v4/pkg/domain/meta Link
 	Link interface {
 		GetTitle() string
 		GetURL() string
 	}
 
-	//go:generate mockgen -destination=../mocks/meta/meta/repository.go -package=mocks github.com/nori-io/common/v3/pkg/domain/meta Repository
+	//go:generate mockgen -destination=../mocks/meta/meta/repository.go -package=mocks github.com/nori-io/common/v4/pkg/domain/meta Repository
 	Repository interface {
 		GetType() enum.RepositoryType
 		GetURL() string

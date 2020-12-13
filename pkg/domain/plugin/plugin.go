@@ -16,13 +16,13 @@ package plugin
 import (
 	"context"
 
-	"github.com/nori-io/common/v3/pkg/domain/config"
-	"github.com/nori-io/common/v3/pkg/domain/logger"
-	"github.com/nori-io/common/v3/pkg/domain/meta"
-	"github.com/nori-io/common/v3/pkg/domain/registry"
+	"github.com/nori-io/common/v4/pkg/domain/config"
+	"github.com/nori-io/common/v4/pkg/domain/logger"
+	"github.com/nori-io/common/v4/pkg/domain/meta"
+	"github.com/nori-io/common/v4/pkg/domain/registry"
 )
 
-//go:generate mockgen -destination=../mocks/plugin/plugin.go -package=mocks github.com/nori-io/common/v3/pkg/domain/plugin Plugin
+//go:generate mockgen -destination=../mocks/plugin/plugin.go -package=mocks github.com/nori-io/common/v4/pkg/domain/plugin Plugin
 type Plugin interface {
 	Meta() meta.Meta
 	Instance() interface{}

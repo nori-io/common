@@ -16,10 +16,10 @@ package plugin
 import (
 	"context"
 
-	"github.com/nori-io/common/v3/pkg/domain/registry"
+	"github.com/nori-io/common/v4/pkg/domain/registry"
 )
 
-//go:generate mockgen -destination=../mocks/plugin/installable.go -package=mocks github.com/nori-io/common/v3/pkg/domain/plugin Installable
+//go:generate mockgen -destination=../mocks/plugin/installable.go -package=mocks github.com/nori-io/common/v4/pkg/domain/plugin Installable
 type Installable interface {
 	Install(ctx context.Context, registry registry.Registry) error
 	UnInstall(ctx context.Context, registry registry.Registry) error

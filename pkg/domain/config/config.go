@@ -1,7 +1,7 @@
 package config
 
 type (
-	//go:generate mockgen -destination=../mocks/registry/config_config.go -package=mocks github.com/nori-io/common/v3/pkg/domain/config Config
+	//go:generate mockgen -destination=../mocks/registry/config_config.go -package=mocks github.com/nori-io/common/v4/pkg/domain/config Config
 	Config interface {
 		Bool(key string, desc string) Bool
 		Float(key string, desc string) Float

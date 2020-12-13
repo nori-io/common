@@ -1,4 +1,4 @@
-module github.com/nori-io/common/v3
+module github.com/nori-io/common/v4
 
 go 1.15
 

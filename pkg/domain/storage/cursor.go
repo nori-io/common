@@ -13,7 +13,7 @@ limitations under the License.
 
 package storage
 
-//go:generate mockgen -destination=../mocks/storage/cursor.go -package=mocks github.com/nori-io/common/v3/pkg/domain/storage Cursor
+//go:generate mockgen -destination=../mocks/storage/cursor.go -package=mocks github.com/nori-io/common/v4/pkg/domain/storage Cursor
 type Cursor interface {
 	First() (key string, value []byte)
 	Last() (key string, value []byte)
