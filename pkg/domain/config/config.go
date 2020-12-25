@@ -20,6 +20,8 @@ type (
 		StringMapInt(key string, desc string) StringMapInt
 		StringMapSliceString(key string, desc string) StringMapSliceString
 		StringMapString(key string, desc string) StringMapString
+
+		SetDefault(key string, val interface{})
 	}
 
 	Bool                 func() bool
