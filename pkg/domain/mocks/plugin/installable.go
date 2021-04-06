@@ -6,10 +6,9 @@ package mocks
 
 import (
 	context "context"
-	reflect "reflect"
-
 	gomock "github.com/golang/mock/gomock"
 	registry "github.com/nori-io/common/v4/pkg/domain/registry"
+	reflect "reflect"
 )
 
 // MockInstallable is a mock of Installable interface

@@ -20,6 +20,7 @@ import (
 const HookInterface meta.Interface = "core/logger/Hook@1.0.0"
 
 //go:generate mockgen -destination=../mocks/logger/hook.go -package=mocks github.com/nori-io/common/v4/pkg/domain/logger Hook
+
 type Hook interface {
 	Levels() []Level
 	Fire(e Entry, field ...Field) error

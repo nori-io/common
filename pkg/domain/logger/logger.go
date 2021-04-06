@@ -28,11 +28,13 @@ type Entry struct {
 }
 
 //go:generate mockgen -destination=../mocks/logger/formatter.go -package=mocks github.com/nori-io/common/v4/pkg/domain/logger Formatter
+
 type Formatter interface {
 	Format(e Entry, field ...Field) ([]byte, error)
 }
 
 //go:generate mockgen -destination=../mocks/logger/logger.go -package=mocks github.com/nori-io/common/v4/pkg/domain/logger Logger
+
 type Logger interface {
 	FieldLogger
 	AddHook(hook Hook)
@@ -40,6 +42,7 @@ type Logger interface {
 }
 
 //go:generate mockgen -destination=../mocks/logger/field_logger.go -package=mocks github.com/nori-io/common/v4/pkg/domain/logger FieldLogger
+
 type FieldLogger interface {
 	// Critical push to log entry with critical level
 	Critical(format string, opts ...interface{})

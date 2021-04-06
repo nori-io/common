@@ -6,13 +6,12 @@ package mocks
 
 import (
 	context "context"
-	reflect "reflect"
-
 	gomock "github.com/golang/mock/gomock"
 	config "github.com/nori-io/common/v4/pkg/domain/config"
 	logger "github.com/nori-io/common/v4/pkg/domain/logger"
 	meta "github.com/nori-io/common/v4/pkg/domain/meta"
 	registry "github.com/nori-io/common/v4/pkg/domain/registry"
+	reflect "reflect"
 )
 
 // MockPlugin is a mock of Plugin interface

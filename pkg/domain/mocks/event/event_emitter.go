@@ -5,10 +5,9 @@
 package mocks
 
 import (
-	reflect "reflect"
-
 	gomock "github.com/golang/mock/gomock"
 	event "github.com/nori-io/common/v4/pkg/domain/event"
+	reflect "reflect"
 )
 
 // MockEventEmitter is a mock of EventEmitter interface
@@ -35,15 +34,15 @@ func (m *MockEventEmitter) EXPECT() *MockEventEmitterMockRecorder {
 }
 
 // Emit mocks base method
-func (m *MockEventEmitter) Emit(arg0 event.Event) {
+func (m *MockEventEmitter) Emit(arg0 string, arg1 interface{}) {
 	m.ctrl.T.Helper()
-	m.ctrl.Call(m, "Emit", arg0)
+	m.ctrl.Call(m, "Emit", arg0, arg1)
 }
 
 // Emit indicates an expected call of Emit
-func (mr *MockEventEmitterMockRecorder) Emit(arg0 interface{}) *gomock.Call {
+func (mr *MockEventEmitterMockRecorder) Emit(arg0, arg1 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Emit", reflect.TypeOf((*MockEventEmitter)(nil).Emit), arg0)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Emit", reflect.TypeOf((*MockEventEmitter)(nil).Emit), arg0, arg1)
 }
 
 // On mocks base method
