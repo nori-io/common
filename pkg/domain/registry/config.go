@@ -19,8 +19,9 @@ import (
 	"github.com/nori-io/common/v4/pkg/domain/meta"
 )
 
+//go:generate mockgen -destination=../mocks/registry/config_registry.go -package=mocks github.com/nori-io/common/v4/pkg/domain/registry ConfigRegistry
+
 type (
-	//go:generate mockgen -destination=../mocks/registry/config_registry.go -package=mocks github.com/nori-io/common/v4/pkg/domain/registry ConfigRegistry
 	ConfigRegistry interface {
 		Register(id meta.ID) config.Config
 		PluginVariables(id meta.ID) []Variable

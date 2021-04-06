@@ -18,6 +18,7 @@ import (
 )
 
 //go:generate mockgen -destination=../mocks/registry/registry.go -package=mocks github.com/nori-io/common/v4/pkg/domain/registry Registry
+
 type Registry interface {
 	ID(id meta.ID) (interface{}, error)
 	Interface(i meta.Interface) (interface{}, error)

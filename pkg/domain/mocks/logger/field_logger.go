@@ -5,10 +5,9 @@
 package mocks
 
 import (
-	reflect "reflect"
-
 	gomock "github.com/golang/mock/gomock"
 	logger "github.com/nori-io/common/v4/pkg/domain/logger"
+	reflect "reflect"
 )
 
 // MockFieldLogger is a mock of FieldLogger interface
