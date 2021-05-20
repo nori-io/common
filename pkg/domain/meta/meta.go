@@ -14,16 +14,16 @@ limitations under the License.
 package meta
 
 import (
-	enum "github.com/nori-io/common/v4/pkg/domain/enum/meta"
+	enum "github.com/nori-io/common/v5/pkg/domain/enum/meta"
 )
 
-//go:generate mockgen -destination=../mocks/meta/meta/meta.go -package=mocks github.com/nori-io/common/v4/pkg/domain/meta Meta
-//go:generate mockgen -destination=../mocks/meta/meta/id.go -package=mocks github.com/nori-io/common/v4/pkg/domain/meta ID
-//go:generate mockgen -destination=../mocks/meta/meta/author.go -package=mocks github.com/nori-io/common/v4/pkg/domain/meta Author
-//go:generate mockgen -destination=../mocks/meta/meta/description.go -package=mocks github.com/nori-io/common/v4/pkg/domain/meta Description
-//go:generate mockgen -destination=../mocks/meta/meta/license.go -package=mocks github.com/nori-io/common/v4/pkg/domain/meta License
-//go:generate mockgen -destination=../mocks/meta/meta/link.go -package=mocks github.com/nori-io/common/v4/pkg/domain/meta Link
-//go:generate mockgen -destination=../mocks/meta/meta/repository.go -package=mocks github.com/nori-io/common/v4/pkg/domain/meta Repository
+//go:generate mockgen -destination=../mocks/meta/meta/meta.go -package=mocks github.com/nori-io/common/v5/pkg/domain/meta Meta
+//go:generate mockgen -destination=../mocks/meta/meta/id.go -package=mocks github.com/nori-io/common/v5/pkg/domain/meta ID
+//go:generate mockgen -destination=../mocks/meta/meta/author.go -package=mocks github.com/nori-io/common/v5/pkg/domain/meta Author
+//go:generate mockgen -destination=../mocks/meta/meta/description.go -package=mocks github.com/nori-io/common/v5/pkg/domain/meta Description
+//go:generate mockgen -destination=../mocks/meta/meta/license.go -package=mocks github.com/nori-io/common/v5/pkg/domain/meta License
+//go:generate mockgen -destination=../mocks/meta/meta/link.go -package=mocks github.com/nori-io/common/v5/pkg/domain/meta Link
+//go:generate mockgen -destination=../mocks/meta/meta/repository.go -package=mocks github.com/nori-io/common/v5/pkg/domain/meta Repository
 
 type (
 	Meta interface {

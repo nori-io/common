@@ -13,7 +13,7 @@ limitations under the License.
 
 package event
 
-//go:generate mockgen -destination=../mocks/event/event_emitter.go -package=mocks github.com/nori-io/common/v4/pkg/domain/event EventEmitter
+//go:generate mockgen -destination=../mocks/event/event_emitter.go -package=mocks github.com/nori-io/common/v5/pkg/domain/event EventEmitter
 
 type EventEmitter interface {
 	Use(pattern string, middleware ...Middleware)

@@ -16,9 +16,9 @@ package meta_test
 import (
 	"testing"
 
-	enum "github.com/nori-io/common/v4/pkg/domain/enum/meta"
-	dommeta "github.com/nori-io/common/v4/pkg/domain/meta"
-	"github.com/nori-io/common/v4/pkg/meta"
+	enum "github.com/nori-io/common/v5/pkg/domain/enum/meta"
+	dommeta "github.com/nori-io/common/v5/pkg/domain/meta"
+	"github.com/nori-io/common/v5/pkg/meta"
 	"github.com/stretchr/testify/assert"
 )
 

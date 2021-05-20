@@ -14,12 +14,12 @@ limitations under the License.
 package storage
 
 import (
-	"github.com/nori-io/common/v4/pkg/domain/meta"
+	"github.com/nori-io/common/v5/pkg/domain/meta"
 )
 
 const StorageInterface meta.Interface = "core/Storage@1.0.0"
 
-//go:generate mockgen -destination=../mocks/storage/storage.go -package=mocks github.com/nori-io/common/v4/pkg/domain/storage Storage
+//go:generate mockgen -destination=../mocks/storage/storage.go -package=mocks github.com/nori-io/common/v5/pkg/domain/storage Storage
 
 type Storage interface {
 	// CreateBucket creates a new bucket with the given name and returns it.
