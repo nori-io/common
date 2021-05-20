@@ -16,7 +16,7 @@ package errors
 import (
 	"fmt"
 
-	"github.com/nori-io/common/v4/pkg/domain/meta"
+	"github.com/nori-io/common/v5/pkg/domain/meta"
 )
 
 type InterfaceAssertError struct {

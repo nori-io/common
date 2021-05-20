@@ -1,6 +1,6 @@
 package config
 
-//go:generate mockgen -destination=../mocks/registry/config_config.go -package=mocks github.com/nori-io/common/v4/pkg/domain/config Config
+//go:generate mockgen -destination=../mocks/registry/config_config.go -package=mocks github.com/nori-io/common/v5/pkg/domain/config Config
 
 type (
 	Config interface {

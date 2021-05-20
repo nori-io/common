@@ -13,8 +13,8 @@ limitations under the License.
 
 package version
 
-//go:generate mockgen -destination=../mocks/version/version.go -package=mocks github.com/nori-io/common/v4/pkg/domain/version Version
-//go:generate mockgen -destination=../mocks/version/constraints.go -package=mocks github.com/nori-io/common/v4/pkg/domain/version Constraints
+//go:generate mockgen -destination=../mocks/version/version.go -package=mocks github.com/nori-io/common/v5/pkg/domain/version Version
+//go:generate mockgen -destination=../mocks/version/constraints.go -package=mocks github.com/nori-io/common/v5/pkg/domain/version Constraints
 
 type (
 	Version interface {

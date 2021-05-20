@@ -14,10 +14,10 @@ limitations under the License.
 package registry
 
 import (
-	"github.com/nori-io/common/v4/pkg/domain/meta"
+	"github.com/nori-io/common/v5/pkg/domain/meta"
 )
 
-//go:generate mockgen -destination=../mocks/registry/registry.go -package=mocks github.com/nori-io/common/v4/pkg/domain/registry Registry
+//go:generate mockgen -destination=../mocks/registry/registry.go -package=mocks github.com/nori-io/common/v5/pkg/domain/registry Registry
 
 type Registry interface {
 	ID(id meta.ID) (interface{}, error)

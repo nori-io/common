@@ -13,7 +13,7 @@ limitations under the License.
 
 package storage
 
-//go:generate mockgen -destination=../mocks/storage/bucket.go -package=mocks github.com/nori-io/common/v4/pkg/domain/storage Bucket
+//go:generate mockgen -destination=../mocks/storage/bucket.go -package=mocks github.com/nori-io/common/v5/pkg/domain/storage Bucket
 
 // Bucket represents a collection of key/value pairs
 type Bucket interface {
@@ -21,7 +21,7 @@ type Bucket interface {
 	Cursor() Cursor
 }
 
-//go:generate mockgen -destination=../mocks/storage/key_value.go -package=mocks github.com/nori-io/common/v4/pkg/domain/storage KeyValue
+//go:generate mockgen -destination=../mocks/storage/key_value.go -package=mocks github.com/nori-io/common/v5/pkg/domain/storage KeyValue
 
 type KeyValue interface {
 	// Get retrieves the value for a key.

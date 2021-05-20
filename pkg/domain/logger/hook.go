@@ -14,12 +14,12 @@ limitations under the License.
 package logger
 
 import (
-	"github.com/nori-io/common/v4/pkg/domain/meta"
+	"github.com/nori-io/common/v5/pkg/domain/meta"
 )
 
 const HookInterface meta.Interface = "core/logger/Hook@1.0.0"
 
-//go:generate mockgen -destination=../mocks/logger/hook.go -package=mocks github.com/nori-io/common/v4/pkg/domain/logger Hook
+//go:generate mockgen -destination=../mocks/logger/hook.go -package=mocks github.com/nori-io/common/v5/pkg/domain/logger Hook
 
 type Hook interface {
 	Levels() []Level
