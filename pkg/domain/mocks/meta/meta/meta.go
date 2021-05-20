@@ -5,10 +5,9 @@
 package mocks
 
 import (
-	reflect "reflect"
-
 	gomock "github.com/golang/mock/gomock"
 	meta "github.com/nori-io/common/v4/pkg/domain/meta"
+	reflect "reflect"
 )
 
 // MockMeta is a mock of Meta interface

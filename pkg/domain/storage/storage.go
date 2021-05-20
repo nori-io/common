@@ -20,6 +20,7 @@ import (
 const StorageInterface meta.Interface = "core/Storage@1.0.0"
 
 //go:generate mockgen -destination=../mocks/storage/storage.go -package=mocks github.com/nori-io/common/v4/pkg/domain/storage Storage
+
 type Storage interface {
 	// CreateBucket creates a new bucket with the given name and returns it.
 	CreateBucket(name string) (Bucket, error)

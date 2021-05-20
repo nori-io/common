@@ -23,6 +23,7 @@ import (
 )
 
 //go:generate mockgen -destination=../mocks/plugin/plugin.go -package=mocks github.com/nori-io/common/v4/pkg/domain/plugin Plugin
+
 type Plugin interface {
 	Meta() meta.Meta
 	Instance() interface{}

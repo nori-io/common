@@ -1,7 +1,8 @@
 package config
 
+//go:generate mockgen -destination=../mocks/registry/config_config.go -package=mocks github.com/nori-io/common/v4/pkg/domain/config Config
+
 type (
-	//go:generate mockgen -destination=../mocks/registry/config_config.go -package=mocks github.com/nori-io/common/v4/pkg/domain/config Config
 	Config interface {
 		Bool(key string, desc string) Bool
 		Float(key string, desc string) Float
@@ -20,6 +21,8 @@ type (
 		StringMapInt(key string, desc string) StringMapInt
 		StringMapSliceString(key string, desc string) StringMapSliceString
 		StringMapString(key string, desc string) StringMapString
+
+		SetDefault(key string, val interface{})
 	}
 
 	Bool                 func() bool

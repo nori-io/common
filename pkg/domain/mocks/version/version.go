@@ -5,10 +5,9 @@
 package mocks
 
 import (
-	reflect "reflect"
-
 	gomock "github.com/golang/mock/gomock"
 	version "github.com/nori-io/common/v4/pkg/domain/version"
+	reflect "reflect"
 )
 
 // MockVersion is a mock of Version interface
